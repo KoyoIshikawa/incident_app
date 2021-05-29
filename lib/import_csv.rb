@@ -12,7 +12,9 @@ class ImportCsv
     # メソッドの戻り値をインポートしたデータの配列とする
     list
   end
-  def self.user_data
+  def self.os_name_data
+    #値の初期化
+    OsName.destroy_all
     # importクラスメソッドを呼び出し，ユーザーデータの配列を生成
     list = import('db/csv_data/OsName_data.csv')
 
