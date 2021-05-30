@@ -20,13 +20,20 @@
 .mw-xl {
   max-width: 1200px;
 }
-
-header{
-  background-color: red;
-  color: white;
-  height: 45px;
+header a{
+  color:inherit;
+  text-decoration:none;
 }
-
+header{
+  color: white;
+}
+.base-bg-color{
+  background-color: #FF3F3F;
+}
+.header-nav{
+  display: inline-block;
+  text-align: center;
+}
 .logo{
   display: inline-block;
   text-align: center;
@@ -34,4 +41,10 @@ header{
 .account-management{
   display: inline-block;
   text-align: right;
+}
+.navbar{
+  margin: 0 auto
+}
+.nav-item{
+  padding: 8px;
 }
