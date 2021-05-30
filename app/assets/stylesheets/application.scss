@@ -20,3 +20,18 @@
 .mw-xl {
   max-width: 1200px;
 }
+
+header{
+  background-color: red;
+  color: white;
+  height: 45px;
+}
+
+.logo{
+  display: inline-block;
+  text-align: center;
+}
+.account-management{
+  display: inline-block;
+  text-align: right;
+}
