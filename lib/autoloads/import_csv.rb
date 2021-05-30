@@ -25,7 +25,7 @@ class ImportCsv
     list = import('db/csv_data/Status_data.csv')
 
     puts "インポート処理を開始"
-    OsName.create!(list)
+    Status.create!(list)
     puts "インポート完了!"
   end
   def self.coding_lang_data
@@ -33,7 +33,7 @@ class ImportCsv
     list = import('db/csv_data/CodingLang_data.csv')
 
     puts "インポート処理を開始"
-    OsName.create!(list)
+    CodingLang.create!(list)
     puts "インポート完了!"
   end
 end
