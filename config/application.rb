@@ -27,6 +27,7 @@ module IncidentApp
     config.i18n.default_locale = :ja
     config.time_zone = 'Asia/Tokyo'
 
+    config.autoload_once_paths += %W(#{config.root}/lib)
     
     config.generators.system_tests = nil
   end
