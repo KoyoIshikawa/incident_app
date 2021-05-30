@@ -1,4 +1,4 @@
-require "csv"
+
 
 class ImportCsv
   # CSVデータのパスを引数として受け取り、インポート処理を実行
