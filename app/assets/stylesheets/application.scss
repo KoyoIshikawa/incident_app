@@ -20,3 +20,32 @@
 .mw-xl {
   max-width: 1200px;
 }
+
+/* header */
+header a{
+  color:inherit;
+  text-decoration:none;
+}
+header{
+  color: white;
+  z-index: 1030;
+}
+.base-bg-color{
+  background-color: #FF3F3F;
+}
+.header-nav{
+  display: inline-block;
+  text-align: center;
+}
+
+.navbar{
+  margin: 0 auto
+}
+.nav-item{
+  padding: 8px;
+}
+
+/* main */
+main{
+  margin-top: 56px;
+}
