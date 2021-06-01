@@ -45,6 +45,17 @@ header{
   padding: 8px;
 }
 
+/* main flash*/
+// フラッシュ
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
 /* main */
 main{
   margin-top: 56px;
