@@ -8,6 +8,9 @@
 }
 
 /* max-width */
+.mw-sm {
+  max-width: 540px;
+}
 
 .mw-md {
   max-width: 720px;
@@ -21,6 +24,8 @@
   max-width: 1200px;
 }
 
+
+
 /* header */
 header a{
   color:inherit;
@@ -31,7 +36,7 @@ header{
   z-index: 1030;
 }
 .base-bg-color{
-  background-color: #FF3F3F;
+  background-color: #007bff ;
 }
 .header-nav{
   display: inline-block;
@@ -59,4 +64,17 @@ header{
 /* main */
 main{
   margin-top: 56px;
+}
+
+/* devise */
+.btn{
+  color: white;
+}
+
+.form-group{
+  margin: 15px auto;
+}
+
+.devise-label{
+  text-align: center;
 }
