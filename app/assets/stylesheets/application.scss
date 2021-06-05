@@ -8,6 +8,9 @@
 }
 
 /* max-width */
+.mw-sm {
+  max-width: 540px;
+}
 
 .mw-md {
   max-width: 720px;
@@ -20,6 +23,8 @@
 .mw-xl {
   max-width: 1200px;
 }
+
+
 
 /* header */
 header a{
@@ -61,3 +66,15 @@ main{
   margin-top: 56px;
 }
 
+/* login */
+.form-group .btn{
+  color: white;
+}
+
+.form-group{
+  margin: 15px auto;
+}
+
+.login-label{
+  text-align: center;
+}
