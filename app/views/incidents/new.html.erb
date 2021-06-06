@@ -7,9 +7,14 @@
   </div>
   <div>
     <%= form.label :solution, "解決方法" %>
-    <%= form.text_field :solution %>
+    <%= form.text_area :solution %>
   </div>
   <div>
-    <%= form.submit "送信"%>
+    <%= form.submit "発行"%>
   </div>
 <% end %>
+<div>
+  <%= link_to :back do %>
+    <button>戻る</button>
+  <% end %>
+</div>
