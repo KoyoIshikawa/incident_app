@@ -1,6 +1,10 @@
 <h1>参照</h1>
 <h2>No.<%= @incident.id %></h2>
-<p><%= l @incident.created_at%></p>
+<div class="show-created-time row">
+  <p class="col-2">作成日時</p>
+  <p class="col-10"><%= l @incident.created_at, format: :default %></p>
+</div>
+
 <div class="show-incident row">
   <p class="col-2">事象</p>
   <p class = "border bg-light col-10"><%= @incident.incident %></p>
