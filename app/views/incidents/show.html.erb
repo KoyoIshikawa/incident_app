@@ -5,10 +5,16 @@
   <p class="col-10"><%= l @incident.created_at, format: :default %></p>
 </div>
 
+<div class="show-updated-time row">
+  <p class="col-2">更新日時</p>
+  <p class="col-10"><%= l @incident.updated_at, format: :default %></p>
+</div>
+
 <div class="show-incident row">
   <p class="col-2">事象</p>
   <p class = "border bg-light col-10"><%= @incident.incident %></p>
 </div>
+
 <div class="show-solution row">
   <p class="col-2">解決方法</p>
   <p class = "border bg-light col-10"><%= safe_join(@incident.solution.split("\n"), tag(:br)) %></p>
