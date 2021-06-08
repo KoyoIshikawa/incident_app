@@ -1,5 +1,5 @@
 <h1>参照</h1>
-<h2>No.<%= sprintf("%008d", @incident.id) %></h2>
+<h2 class="border-bottom border-dark">No.<%= sprintf("%008d", @incident.id) %></h2>
 <div class="show-created-time row">
   <p class="col-2">作成日時</p>
   <p class="col-10"><%= l @incident.created_at, format: :default %></p>
