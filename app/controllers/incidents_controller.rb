@@ -1,7 +1,7 @@
 class IncidentsController < ApplicationController
   before_action :authenticate_user!, except: :index
   def index
-    
+    @incidents = Incident.order(id: :arc)
   end
 
   def show
