@@ -1,8 +1,10 @@
 <h2 class="page-title">参照</h2>
-<h2 class="border-bottom border-dark">No.<%= sprintf("%008d", @incident.id) %></h2>
-<div class="update-buttom">
-  <%= link_to "更新", edit_incident_path %>
-  <%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" } %>
+<div class="show-header">
+  <h2 class="border-bottom border-dark">No.<%= sprintf("%008d", @incident.id) %></h2>
+  <div class="update-buttom">
+    <%= link_to "更新", edit_incident_path, class: "btn btn-primary"%>
+    <%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary" %>
+  </div>
 </div>
 <div class="show-created-time row">
   <p class="col-2">作成日時</p>
