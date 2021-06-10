@@ -95,3 +95,10 @@ main{
 
 
 // show
+.show-header{
+  display: flex;
+  width: 100%;
+  .update-buttom{
+    margin-left: auto;
+  }
+}
