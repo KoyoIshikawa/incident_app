@@ -1,5 +1,5 @@
 <h1>一覧</h1>
-<table class="table">
+<table class="table event_table">
   <thead class="thead-light">
     <tr>
       <th scope="col">No.</th>
@@ -13,7 +13,7 @@
   <tbody>
     <% @incidents.each do |incident| %>
       <tr>
-        <th scope="row"><%= sprintf("%008d", incident.id) %></th>
+        <th scope="row"><%= link_to sprintf("%008d", incident.id), incident %></th>
         <td><%= incident.incident %></td>
         <td>
           <%= link_to "詳細", incident %>
