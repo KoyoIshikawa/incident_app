@@ -15,11 +15,10 @@
       <tr>
         <th scope="row"><%= link_to sprintf("%008d", incident.id), incident %></th>
         <td><%= incident.incident %></td>
-        <td>
-          <%= link_to "詳細", incident %>
-          <%= link_to "編集", edit_incident_path(incident) %>
-          <%= link_to "削除", incident, method: :delete, data: { confirm: "削除しますか?" } %>
-        </td>
+        <td>状態</td>
+        <td>言語</td>
+        <td>OS</td>
+        <td><%= l incident.created_at, format: :long %></td>
       </tr>
     <% end %>
   </tbody>
