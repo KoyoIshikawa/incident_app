@@ -28,6 +28,9 @@ class IncidentsController < ApplicationController
   end
 
   def destroy
+    incident = Incident.find(params[:id])
+    incident.destroy!
+    redirect_to root_path
   end
 
   private
