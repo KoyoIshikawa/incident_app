@@ -11,9 +11,9 @@
     </tr>
   </thead>
   <tbody>
-    <% @incidents.each.with_index(1) do |incident, i| %>
+    <% @incidents.each do |incident| %>
       <tr>
-        <th scope="row"><%= sprintf("%008d", i) %></th>
+        <th scope="row"><%= sprintf("%008d", incident.id) %></th>
         <td><%= incident.incident %></td>
         <td>
           <%= link_to "詳細", incident %>
