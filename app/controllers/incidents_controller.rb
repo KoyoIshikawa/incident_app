@@ -18,9 +18,13 @@ class IncidentsController < ApplicationController
   end
 
   def edit
+    @incident = Incident.find(params[:id])
   end
 
   def update
+    incident = Incident.find(params[:id])
+    incident.update!(incident_params)
+    redirect_to incident
   end
 
   def destroy
