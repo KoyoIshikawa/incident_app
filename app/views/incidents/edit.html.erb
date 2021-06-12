@@ -1,2 +1,3 @@
-<h1>Incidents#edit</h1>
-<p>Find me in app/views/incidents/edit.html.erb</p>
+<h2 class="page-title">更新画面</h2>
+<h2 class="border-bottom border-dark">No.<%= sprintf("%008d", @incident.id) %></h2>
+<%= render partial: "form", locals: { incident: @incident, button_value: "更新" } %>
