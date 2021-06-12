@@ -14,7 +14,7 @@ class IncidentsController < ApplicationController
 
   def create
     incident = Incident.create!(incident_params)
-    redirect_to incident
+    redirect_to incident,  notice: "作成しました"
   end
 
   def edit
@@ -24,13 +24,13 @@ class IncidentsController < ApplicationController
   def update
     incident = Incident.find(params[:id])
     incident.update!(incident_params)
-    redirect_to incident
+    redirect_to incident, notice: "更新しました"
   end
 
   def destroy
     incident = Incident.find(params[:id])
     incident.destroy!
-    redirect_to root_path
+    redirect_to root_path, alert: "削除しました"
   end
 
   private
