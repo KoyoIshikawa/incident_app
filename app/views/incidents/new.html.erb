@@ -1,16 +1,3 @@
 <h2 class="page-title">新規発行</h2>
+<%= render partial: "form", locals: { incident: @incident,button_value: "発行" } %>
 
-<%= form_with model: @incident, local: true do |form| %>
-  <div class="form-group">
-    <%= form.label :incident, "事象" %>
-    <%= form.text_field :incident, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :solution, "解決方法" %>
-    <%= form.text_area :solution, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= form.submit "発行", data: {confirm: "発行しますか？"}, class: "btn btn-primary new-page-btn"%>
-  </div>
-<% end %>
-  <%= link_to "戻る", :back, data: {confirm: "保存しないで戻ります。よろしいですか？"}, class: "btn btn-secondary new-page-btn" %>
