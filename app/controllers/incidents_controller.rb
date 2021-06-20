@@ -1,11 +1,13 @@
 class IncidentsController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :set_incident, only: %i[edit update destroy]
+
   def index
     @incidents = Incident.order(id: :DESC)
   end
 
   def show
-    @incident = Incident.find(params[:id])
+    @incident = current_user.incidents.find(params[:id])
   end
 
   def new
@@ -18,23 +20,24 @@ class IncidentsController < ApplicationController
   end
 
   def edit
-    @incident = current_user.incidents.find(params[:id])
   end
 
   def update
-    incident = Incident.find(params[:id])
-    incident.update!(incident_params)
-    redirect_to incident, notice: "更新しました"
+    @incident.update!(incident_params)
+    redirect_to @incident, notice: "更新しました"
   end
 
   def destroy
-    incident = Incident.find(params[:id])
-    incident.destroy!
+    @incident.destroy!
     redirect_to root_path, alert: "削除しました"
   end
 
   private
   def incident_params
     params.require(:incident).permit(:incident, :solution)
+  end
+
+  def set_incident
+    @incident = current_user.incidents.find(params[:id])
   end
 end
