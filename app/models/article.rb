@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
   belongs_to :user
   belongs_to :incident
-  validate :content, presence: true
+  validates :content, presence: true
 end
