@@ -7,7 +7,7 @@ class IncidentsController < ApplicationController
   end
 
   def show
-    @incident = current_user.incidents.find(params[:id])
+    @incident = Incident.find(params[:id])
   end
 
   def new
@@ -38,6 +38,7 @@ class IncidentsController < ApplicationController
   end
 
   def set_incident
-    @incident = current_user.incidents.find(params[:id])
+    @incident = current_user.incidents..find_by(id: params[:id])
+    redirect_to root_path, alert: "権限がありません" if @incident.nil?
   end
 end
