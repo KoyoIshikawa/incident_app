@@ -13,12 +13,12 @@ class IncidentsController < ApplicationController
   end
 
   def create
-    incident = Incident.create!(incident_params)
+    incident = current_user.incidents.create!(incident_params)
     redirect_to incident,  notice: "作成しました"
   end
 
   def edit
-    @incident = Incident.find(params[:id])
+    @incident = current_user.incidents.find(params[:id])
   end
 
   def update
