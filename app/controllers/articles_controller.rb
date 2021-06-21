@@ -1,0 +1,23 @@
+class ArticlesController < ApplicationController
+  def new
+    @incident = Incident.find(params[:incident_id])
+    @article = Article.new
+  end
+  def create
+    article = current_user.article.create!(content: article_params[:content], incident_id: params[:incident_id])
+    redirect_to "/tweets/#{@article.incident.id}",  notice: "作成しました"
+  end
+
+  def edit 
+    @incident = Incident.find(params[:incident_id])
+    @article = Article.find(params[:id])
+  end
+
+  def destroy
+  end
+
+  private
+  def article_params
+    params.require(:article).permit(:content)
+  end
+end

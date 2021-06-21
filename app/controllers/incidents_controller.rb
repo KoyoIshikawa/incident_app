@@ -8,6 +8,7 @@ class IncidentsController < ApplicationController
 
   def show
     @incident = Incident.find(params[:id])
+    @articles = @incident.articles.includes(:user)
   end
 
   def new
