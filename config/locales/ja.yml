@@ -15,8 +15,8 @@ ja:
         incident: 事象
         solution: 解決方法
       article:
-        user: ユーザー
-        incident: インシデント
+        user: ユーザーid
+        incident: インシデントid
         content: 内容
   date:
     abbr_day_names:
