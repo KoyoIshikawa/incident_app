@@ -33,8 +33,6 @@
   <%= form.text_field :content %>
   <%= form.submit %>
 <% end %>
-<%= link_to "記事追加", new_incident_article_path([:incident_id],id: @incident.id) %>
-
 
 <hr>
 <% @articles.each_with_index do |article,i| %>
