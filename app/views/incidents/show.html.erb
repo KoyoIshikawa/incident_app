@@ -29,6 +29,10 @@
 </div>
 <hr>
 <%# 記事記載欄 %>
+<%= form_with model: [@incident, @article] do |form| %>
+  <%= form.text_field :content %>
+  <%= form.submit %>
+<% end %>
 <%= link_to "記事追加", new_incident_article_path([:incident_id],id: @incident.id) %>
 
 

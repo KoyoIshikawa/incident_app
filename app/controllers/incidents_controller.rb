@@ -9,6 +9,7 @@ class IncidentsController < ApplicationController
   def show
     @incident = Incident.find(params[:id])
     @articles = @incident.articles
+    @article = Article.new
   end
 
   def new
