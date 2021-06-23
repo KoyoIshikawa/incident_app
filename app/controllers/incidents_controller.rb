@@ -10,6 +10,7 @@ class IncidentsController < ApplicationController
     @incident = Incident.find(params[:id])
     @articles = @incident.articles
     @article = Article.new
+    
   end
 
   def new

@@ -30,3 +30,7 @@
 
 <%# <%= link_to "コメントする", "/incidents/4/articles/new" %> 
 <%= link_to "コメントする", new_incident_article_path([:incident_id],id: @incident.id) %>
+
+<% @articles.each do |article| %>
+  <p><%= article.content %></p>
+<% end %>
