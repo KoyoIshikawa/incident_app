@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_28_010128) do
+ActiveRecord::Schema.define(version: 2021_06_19_081227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "incident_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["incident_id"], name: "index_articles_on_incident_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
 
   create_table "coding_langs", force: :cascade do |t|
     t.string "name"
@@ -26,6 +36,8 @@ ActiveRecord::Schema.define(version: 2021_05_28_010128) do
     t.text "solution"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_incidents_on_user_id"
   end
 
   create_table "os_names", force: :cascade do |t|
@@ -52,4 +64,7 @@ ActiveRecord::Schema.define(version: 2021_05_28_010128) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "incidents"
+  add_foreign_key "articles", "users"
+  add_foreign_key "incidents", "users"
 end
