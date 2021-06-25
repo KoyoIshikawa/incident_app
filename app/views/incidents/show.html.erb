@@ -42,7 +42,7 @@
 
   <% if current_user.id == article.user_id %>
     <div class="update-buttom">
-      <%= link_to "更新", edit_incident_article_path(@incident), class: "btn btn-primary"%> 
+      <%= link_to "更新", edit_incident_article_path(@incident, article), class: "btn btn-primary"%> 
       <%= link_to "削除", incident_article_path(@incident), method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary"%>
     </div>
   <% end %>

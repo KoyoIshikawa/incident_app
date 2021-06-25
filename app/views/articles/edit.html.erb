@@ -1,0 +1,4 @@
+<%= form_with model: [@incident, @article], local: true do |form| %>
+  <%= form.text_field :content %>
+  <%= form.submit %>
+<% end %>
