@@ -19,6 +19,10 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    incident = Incident.find(params[:incident_id])
+    article = incident.articles.find(params[:id])
+    article.destroy!
+    redirect_to incident, alert: "削除しました"
   end
 
   private
