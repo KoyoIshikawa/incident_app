@@ -37,7 +37,7 @@
 <hr>
 <% @articles.each_with_index do |article,i| %>
 <p class="col-2">記事<%= i+1 %></p>
-<!--
+
 <div class="show-header border-bottom border-dark">
 
   <% if current_user.id == article.user_id %>
@@ -47,7 +47,7 @@
     </div>
   <% end %>
 </div>
--->
+
 <div class="show-created-time row">
   <p class="col-2">作成日時</p>
   <p class="col-10"><%= l article.created_at, format: :default %></p>
