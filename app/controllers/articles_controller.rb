@@ -9,6 +9,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def update
+
+  end
+  
   def destroy
   end
 
