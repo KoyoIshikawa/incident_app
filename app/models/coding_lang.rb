@@ -1,4 +1,4 @@
 class CodingLang < ApplicationRecord
-  belongs_to :incidents
+  has_many :incidents, dependent: :destroy
   validates :name, presence: true
 end

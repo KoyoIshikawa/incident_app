@@ -1,4 +1,4 @@
 class Status < ApplicationRecord
-  belongs_to :incidents
+    has_many :incidents, dependent: :destroy
   validates :status, presence: true
 end

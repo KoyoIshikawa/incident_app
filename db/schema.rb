@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_19_081227) do
+ActiveRecord::Schema.define(version: 2021_06_29_021641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,17 @@ ActiveRecord::Schema.define(version: 2021_06_19_081227) do
   end
 
   create_table "incidents", force: :cascade do |t|
-    t.text "incident"
-    t.text "solution"
+    t.text "incident", null: false
+    t.text "solution", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.bigint "os_name_id", null: false
+    t.bigint "status_id", null: false
+    t.bigint "coding_lang_id", null: false
+    t.index ["coding_lang_id"], name: "index_incidents_on_coding_lang_id"
+    t.index ["os_name_id"], name: "index_incidents_on_os_name_id"
+    t.index ["status_id"], name: "index_incidents_on_status_id"
     t.index ["user_id"], name: "index_incidents_on_user_id"
   end
 
@@ -66,5 +72,8 @@ ActiveRecord::Schema.define(version: 2021_06_19_081227) do
 
   add_foreign_key "articles", "incidents"
   add_foreign_key "articles", "users"
+  add_foreign_key "incidents", "coding_langs"
+  add_foreign_key "incidents", "os_names"
+  add_foreign_key "incidents", "statuses"
   add_foreign_key "incidents", "users"
 end
