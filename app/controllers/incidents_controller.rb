@@ -14,6 +14,9 @@ class IncidentsController < ApplicationController
 
   def new
     @incident = Incident.new
+    @os_names = OsName.order(id: :DESC)
+    @statuses = Status.order(id: :DESC)
+    @coding_langs = CodingLang.order(id: :DESC)
   end
 
   def create
@@ -36,7 +39,7 @@ class IncidentsController < ApplicationController
 
   private
   def incident_params
-    params.require(:incident).permit(:incident, :solution)
+    params.require(:incident).permit(:incident, :solution, :os_name_id, :status_id, :coding_lang_id)
   end
 
   def set_incident
