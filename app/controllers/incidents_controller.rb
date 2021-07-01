@@ -14,9 +14,6 @@ class IncidentsController < ApplicationController
 
   def new
     @incident = Incident.new
-    @os_names = OsName.order(id: :DESC)
-    @statuses = Status.order(id: :DESC)
-    @coding_langs = CodingLang.order(id: :DESC)
   end
 
   def create
