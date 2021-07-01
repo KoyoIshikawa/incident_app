@@ -15,9 +15,9 @@
       <tr>
         <th scope="row"><%= link_to sprintf("%008d", incident.id), incident %></th>
         <td><%= incident.incident %></td>
-        <td>状態</td>
-        <td>言語</td>
-        <td>OS</td>
+        <td><%= incident.status.status%></td>
+        <td><%= incident.coding_lang.name %></td>
+        <td><%= incident.os_name.name %></td>
         <td><%= l incident.created_at, format: :long %></td>
       </tr>
     <% end %>
