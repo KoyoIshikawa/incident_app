@@ -41,6 +41,9 @@ gem "i18n_generators"
 # ダミーデータ投入用
 gem "faker", require: false
 
+# 検索機能
+gem "ransack"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
