@@ -10,8 +10,7 @@
   <%= form.select :os_name_id, OsName.all.collect { |os| [os.name, os.id] }, { include_blank: true } %>
   <%= form.select :status_id, Status.all.collect { |status| [status.status, status.id] }, { include_blank: true } %>
   <%= form.select :coding_lang_id, CodingLang.all.collect { |coding_lang| [coding_lang.name, coding_lang.id] }, { include_blank: true } %>
-  <div class="form-group">
-    <%= form.submit button_value, data: {confirm: "#{button_value}しますか？"}, class: "btn btn-primary new-page-btn"%>
+  <div class="form-group">    <%= form.submit button_value, data: {confirm: "#{button_value}しますか？"}, class: "btn btn-primary new-page-btn"%>
   </div>
 <% end %>
 

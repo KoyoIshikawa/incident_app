@@ -3,7 +3,7 @@ class IncidentsController < ApplicationController
   before_action :set_incident, only: %i[edit update destroy]
 
   def index
-    @incidents = Incident.order(id: :DESC)
+    @incidents = Incident.limit(20).order(id: :DESC)
   end
 
   def show
