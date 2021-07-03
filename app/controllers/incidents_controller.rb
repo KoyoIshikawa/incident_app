@@ -5,7 +5,8 @@ class IncidentsController < ApplicationController
   PER_PAGE = 20
 
   def index
-    @incidents = Incident.limit(20).order(id: :DESC)
+    @incidents = Incident.limit(20).includes(:user, :os_name, :status, :coding_lang).order(id: :DESC)
+    
   end
 
   def show
