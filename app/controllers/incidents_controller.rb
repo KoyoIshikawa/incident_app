@@ -38,7 +38,7 @@ class IncidentsController < ApplicationController
   end
 
   def search
-    @results = @q.result
+    @results = @q.result.includes(:user, :os_name, :status, :coding_lang).order(id: :DESC)
   end
 
   private
