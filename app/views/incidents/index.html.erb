@@ -3,8 +3,12 @@
 <%= search_form_for @q, url: search_incidents_path do |f| %>
   <%= f.label :incident_cont, "事象" %>
   <%= f.search_field :incident_cont %>
-
-  
+  <%= f.label :status_status_eq, "状態" %>
+  <%= f.search_field :status_status_eq %>
+  <%= f.label :coding_lang_name_eq, "言語" %>
+  <%= f.search_field :coding_lang_name_eq %>
+  <%= f.label :os_name_name_eq, "OS" %>
+  <%= f.search_field :os_name_name_eq %>
   <%= f.submit '検索' %>
 <% end %>
 
