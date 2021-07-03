@@ -1,8 +1,8 @@
 <h1>一覧</h1>
 <h1>検索</h1>
 <%= search_form_for q, url: search_incidents_path do |f| %>
-  <%= f.label :incident_cont, "事象" %>
-  <%= f.search_field :incident_cont %>
+  <%= f.label :incident_has_every_term, "事象" %>
+  <%= f.search_field :incident_has_every_term %>
   <%= f.label :status_status_eq, "状態" %>
   <%= f.select :status_status_eq, Status.all.collect { |status| [status.status, status.status] }, { include_blank: true } %>
   <%= f.label :coding_lang_name_eq, "言語" %>
