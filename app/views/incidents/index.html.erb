@@ -1,5 +1,5 @@
 <h1>一覧</h1>
-<h1>ユーザー検索</h1>
+<h1>検索</h1>
 <%= search_form_for @q, url: search_incidents_path do |f| %>
   <%= f.label :incident_cont, "事象" %>
   <%= f.search_field :incident_cont %>
