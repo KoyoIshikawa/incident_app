@@ -1,0 +1,39 @@
+<h1>一覧</h1>
+<h1>検索</h1>
+<%= search_form_for q, url: search_incidents_path do |f| %>
+  <%= f.label :incident_cont, "事象" %>
+  <%= f.search_field :incident_cont %>
+  <%= f.label :status_status_eq, "状態" %>
+  <%= f.select :status_status_eq, Status.all.collect { |status| [status.status, status.status] }, { include_blank: true } %>
+  <%= f.label :coding_lang_name_eq, "言語" %>
+  <%= f.select :coding_lang_name_eq, CodingLang.all.collect { |coding_lang| [coding_lang.name, coding_lang.name] }, { include_blank: true } %>
+  <%= f.label :os_name_name_eq, "OS" %>
+  <%= f.select :os_name_name_eq, OsName.all.collect { |os| [os.name, os.name] }, { include_blank: true } %> 
+  <%= f.submit '検索' %>
+<% end %>
+
+
+<table class="table event_table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">事象</th>
+      <th scope="col">状態</th>
+      <th scope="col">言語</th>
+      <th scope="col">OS</th>
+      <th scope="col">作成日時</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% incidents.each do |incident| %>
+      <tr>
+        <th scope="row"><%= link_to sprintf("%008d", incident.id), incident %></th>
+        <td><%= incident.incident %></td>
+        <td><%= incident.status.status%></td>
+        <td><%= incident.coding_lang.name %></td>
+        <td><%= incident.os_name.name %></td>
+        <td><%= l incident.created_at, format: :long %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

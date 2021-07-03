@@ -3,7 +3,7 @@ module ApplicationHelper
     
     if devise_controller?
       "mw-sm"
-    elsif controller.action_name == "index"
+    elsif controller.action_name == "index" or "search"
       "mw-xl"
     else
       "mw-md"
