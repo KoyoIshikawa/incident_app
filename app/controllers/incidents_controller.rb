@@ -1,9 +1,11 @@
 class IncidentsController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :set_incident, only: %i[edit update destroy]
+  before_action :set_q, only: [:index, :search]
+  PER_PAGE = 20
 
   def index
-    @incidents = Incident.order(id: :DESC)
+    @incidents = Incident.limit(20).includes(:user, :os_name, :status, :coding_lang).order(id: :DESC)
   end
 
   def show
@@ -34,6 +36,10 @@ class IncidentsController < ApplicationController
     redirect_to root_path, alert: "削除しました"
   end
 
+  def search
+    @results = @q.result.limit(20).includes(:user, :os_name, :status, :coding_lang).order(id: :DESC)
+  end
+
   private
   def incident_params
     params.require(:incident).permit(:incident, :solution, :os_name_id, :status_id, :coding_lang_id)
@@ -42,5 +48,9 @@ class IncidentsController < ApplicationController
   def set_incident
     @incident = current_user.incidents.find_by(id: params[:id])
     redirect_to root_path, alert: "権限がありません" if @incident.nil?
+  end
+
+  def set_q
+    @q = Incident.ransack(params[:q])
   end
 end
