@@ -13,6 +13,10 @@
 <% end %>
 <hr>
 <h2>一覧</h2>
+<%= paginate incidents %>
+<div class="d-flex justify-content-end">
+  <%= page_entries_info incidents %>
+</div>
 <table class="table event_table">
   <thead class="thead-light">
     <tr>
@@ -37,3 +41,10 @@
     <% end %>
   </tbody>
 </table>
+<div class="d-flex justify-content-end">
+  <%= page_entries_info incidents %>
+</div>
+<%= paginate incidents %>
+
+
+
