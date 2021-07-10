@@ -20,12 +20,12 @@
 <table class="table event_table">
   <thead class="thead-light">
     <tr>
-      <th scope="col">No.</th>
-      <th scope="col">事象</th>
-      <th scope="col">状態</th>
-      <th scope="col">言語</th>
-      <th scope="col">OS</th>
-      <th scope="col">作成日時</th>
+      <th scope="col"><%= sort_link(q, :id, "No.") %></th>
+      <th scope="col"><%= sort_link(q, :incident, "事象") %></th>
+      <th scope="col"><%= sort_link(q, :status_id, "状態") %></th>
+      <th scope="col"><%= sort_link(q, :coding_lang_id, "言語") %> </th>
+      <th scope="col"><%= sort_link(q, :os_name_id, "OS") %> </th>
+      <th scope="col"><%= sort_link(q, :created_at, "作成日時") %> </th>
     </tr>
   </thead>
   <tbody>
