@@ -5,7 +5,7 @@ class IncidentsController < ApplicationController
   PER_PAGE = 20
 
   def index
-    @incidents = Incident.includes(:user, :os_name, :status, :coding_lang).order(id: :DESC).page(params[:page]).per(PER_PAGE)
+    @incidents = @q.result.includes(:user, :os_name, :status, :coding_lang).page(params[:page]).per(PER_PAGE)
   end
 
   def show
@@ -37,7 +37,7 @@ class IncidentsController < ApplicationController
   end
 
   def search
-    @results = @q.result.limit(20).includes(:user, :os_name, :status, :coding_lang).order(id: :DESC).page(params[:page]).per(PER_PAGE)
+    @results = @q.result.includes(:user, :os_name, :status, :coding_lang).order(id: :DESC).page(params[:page]).per(PER_PAGE)
   end
 
   private
