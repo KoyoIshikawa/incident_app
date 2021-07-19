@@ -24,5 +24,5 @@ puts "インシデント初期データ投稿開始"
   Incident.create!(incident: Faker::Quote.famous_last_words, solution: Faker::Quote.jack_handey, user_id: 1, os_name_id: OsName.find(rand(OsName.first.id..OsName.last.id)).id, status_id: Status.find(rand(Status.first.id..Status.last.id)).id, coding_lang_id: CodingLang.find(rand(CodingLang.first.id..CodingLang.last.id)).id)
 end
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') 
 puts "初期データの投入に成功しました！"
