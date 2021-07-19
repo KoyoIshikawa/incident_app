@@ -10,6 +10,9 @@ ja:
     models:
       incident: インシデント
       article: 記事
+      os_name: OS
+      coding_lang: 言語
+      status: ステータス
     attributes:
       incident:
         incident: 事象
@@ -18,6 +21,12 @@ ja:
         user: ユーザーid
         incident: インシデントid
         content: 内容
+      os_name:
+        name: OS
+      coding_lang:
+        name: 言語
+      status:
+        status: ステータス
   date:
     abbr_day_names:
       - 日
@@ -216,3 +225,12 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  attributes:
+    id: ID
+    namespace: 名前空間
+    resource_type: リソースタイプ
+    resource_id: リソースID
+    author_type: 著者タイプ
+    author_id: 著者ID
+    created_at: 作成日時
+    updated_at: 更新日時
