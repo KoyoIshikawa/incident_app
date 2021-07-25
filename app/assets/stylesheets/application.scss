@@ -103,3 +103,10 @@ main{
     margin-left: auto;
   }
 }
+
+// 576px以下の場合テーブル表示中止
+@media (max-width: 576px) {
+  #page {
+    display: none;
+  }
+}

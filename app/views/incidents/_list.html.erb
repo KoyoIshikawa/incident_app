@@ -27,30 +27,32 @@
 <div class="d-flex justify-content-end">
   <%= page_entries_info incidents %>
 </div>
-<table class="table event_table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col"><%= sort_link(q, :id, "No.") %></th>
-      <th scope="col"><%= sort_link(q, :incident, "事象") %></th>
-      <th scope="col"><%= sort_link(q, :status_id, "状態") %></th>
-      <th scope="col"><%= sort_link(q, :coding_lang_id, "言語") %> </th>
-      <th scope="col"><%= sort_link(q, :os_name_id, "OS") %> </th>
-      <th scope="col"><%= sort_link(q, :created_at, "作成日時") %> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% incidents.each do |incident| %>
+<div id="page">
+  <table class="table event_table">
+    <thead class="thead-light">
       <tr>
-        <th scope="row"><%= link_to sprintf("%008d", incident.id), incident %></th>
-        <td><%= incident.incident %></td>
-        <td><%= incident.status.status%></td>
-        <td><%= incident.coding_lang.name %></td>
-        <td><%= incident.os_name.name %></td>
-        <td><%= l incident.created_at, format: :long %></td>
+        <th scope="col"><%= sort_link(q, :id, "No.") %></th>
+        <th scope="col"><%= sort_link(q, :incident, "事象") %></th>
+        <th scope="col"><%= sort_link(q, :status_id, "状態") %></th>
+        <th scope="col"><%= sort_link(q, :coding_lang_id, "言語") %> </th>
+        <th scope="col"><%= sort_link(q, :os_name_id, "OS") %> </th>
+        <th scope="col"><%= sort_link(q, :created_at, "作成日時") %> </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% incidents.each do |incident| %>
+        <tr>
+          <th scope="row"><%= link_to sprintf("%008d", incident.id), incident %></th>
+          <td><%= incident.incident %></td>
+          <td><%= incident.status.status%></td>
+          <td><%= incident.coding_lang.name %></td>
+          <td><%= incident.os_name.name %></td>
+          <td><%= l incident.created_at, format: :long %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <div class="d-flex justify-content-end">
   <%= page_entries_info incidents %>
 </div>
