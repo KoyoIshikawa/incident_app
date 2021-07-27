@@ -1,4 +1,4 @@
-<div id="page">
+<div class="table-responsive-sm" >
   <table class="table event_table">
     <thead class="thead-light">
       <tr>
@@ -15,7 +15,7 @@
         <tr>
           <th scope="row"><%= link_to sprintf("%008d", incident.id), incident %></th>
           <td><%= incident.incident %></td>
-          <td><%= incident.status.status%></td>
+          <td><%= truncate(incident.status.status,length: 20) %></td>
           <td><%= incident.coding_lang.name %></td>
           <td><%= incident.os_name.name %></td>
           <td><%= l incident.created_at, format: :long %></td>
