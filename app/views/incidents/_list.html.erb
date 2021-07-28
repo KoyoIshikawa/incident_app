@@ -1,4 +1,4 @@
-<div class="table-responsive-sm" >
+<div >
   <table class="table event_table">
     <thead class="thead-light">
       <tr>
@@ -13,12 +13,12 @@
     <tbody>
       <% incidents.each do |incident| %>
         <tr>
-          <th scope="row"><%= link_to sprintf("%008d", incident.id), incident %></th>
-          <td><%= incident.incident %></td>
-          <td><%= truncate(incident.status.status,length: 20) %></td>
-          <td><%= incident.coding_lang.name %></td>
-          <td><%= incident.os_name.name %></td>
-          <td><%= l incident.created_at, format: :long %></td>
+          <th data-label="No." scope="row"><%= link_to sprintf("%008d", incident.id), incident %></th>
+          <td data-label="イベント名" ><%= incident.incident %></td>
+          <td data-label="ステータス" ><%= truncate(incident.status.status,length: 20) %></td>
+          <td data-label="言語" ><%= incident.coding_lang.name %></td>
+          <td data-label="OS" ><%= incident.os_name.name %></td>
+          <td data-label="作成日時" ><%= l incident.created_at, format: :long %></td>
         </tr>
       <% end %>
     </tbody>

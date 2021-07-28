@@ -104,13 +104,20 @@ main{
   }
 }
 
-// 576px以下の場合テーブル表示中止
+// 576pxまではテーブル表示中止
 @media (max-width: 576px) {
-  #page {
+  table.table th,
+  table.table td {
+    width: 100%;
+    display: block;
+    text-align:right;
+  }
+  table td:before{
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+  thead{
     display: none;
   }
-}
-
-.card{
-  margin: 15px auto;
 }
