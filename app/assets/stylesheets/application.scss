@@ -106,6 +106,17 @@ main{
 
 // 576pxまではテーブル表示中止
 @media (max-width: 576px) {
+  table {
+    border: 0px;
+  }
+  table thead {
+    display: none;
+  }
+  table tr {
+    margin-bottom: 10px;
+    display: block;
+    border: 2px solid #ddd;
+  }
   table.table th,
   table.table td {
     width: 100%;
@@ -117,7 +128,5 @@ main{
     float: left;
     font-weight: bold;
   }
-  thead{
-    display: none;
-  }
+
 }
