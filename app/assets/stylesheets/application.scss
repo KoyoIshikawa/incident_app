@@ -117,16 +117,26 @@ main{
     display: block;
     border: 2px solid #ddd;
   }
-  table.table th,
-  table.table td {
+  table th,
+  table td {
     width: 100%;
     display: block;
-    text-align:right;
+    text-align: right;
   }
-  table td:before{
+  table td:before,th::before{
     content: attr(data-label);
     float: left;
     font-weight: bold;
+  }
+  table .incident::before {
+    content: attr(data-label);
+    text-align: left;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+  }
+  table .incident{
+    text-align: left;
   }
 
 }
