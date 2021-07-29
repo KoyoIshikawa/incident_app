@@ -129,7 +129,6 @@ main{
     font-weight: bold;
   }
   table .incident::before {
-    content: attr(data-label);
     text-align: left;
     font-weight: bold;
     display: block;
