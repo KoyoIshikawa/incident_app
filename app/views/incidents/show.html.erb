@@ -52,10 +52,8 @@
 
 <hr>
 <% @articles.each_with_index do |article,i| %>
-<p class="col-sm-2">記事<%= i+1 %></p>
-
 <div class="show-header border-bottom border-dark">
-
+<p class="col-sm-2">記事<%= i+1 %></p>
   <% if current_user.id == article.user_id %>
     <div class="update-buttom">
       <%= link_to "更新", edit_incident_article_path(@incident, article), class: "btn btn-primary"%> 
