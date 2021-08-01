@@ -9,38 +9,38 @@
   <% end %>
 </div>
 <div class="show-created-time row">
-  <p class="col-2">作成日時</p>
-  <p class="col-10"><%= l @incident.created_at, format: :default %></p>
+  <p class="col-sm-2">作成日時</p>
+  <p class="col-sm-10"><%= l @incident.created_at, format: :default %></p>
 </div>
 
 <div class="show-updated-time row">
-  <p class="col-2">更新日時</p>
-  <p class="col-10"><%= l @incident.updated_at, format: :default %></p>
+  <p class="col-sm-2">更新日時</p>
+  <p class="col-sm-10"><%= l @incident.updated_at, format: :default %></p>
 </div>
 
 <div class="show-incident row">
-  <p class="col-2">事象</p>
-  <p class = "border bg-light col-10"><%= @incident.incident %></p>
+  <p class="col-sm-2">事象</p>
+  <p class = "border bg-light col-sm-10"><%= @incident.incident %></p>
 </div>
 
 <div class="show-solution row">
-  <p class="col-2">解決方法</p>
-  <p class = "border bg-light col-10"><%= safe_join(@incident.solution.split("\n"), tag(:br)) %></p>
+  <p class="col-sm-2">解決方法</p>
+  <p class = "border bg-light col-sm-10"><%= safe_join(@incident.solution.split("\n"), tag(:br)) %></p>
 </div>
 
 <div class="show-solution row">
-  <p class="col-2">ステータス</p>
-  <p class = "border bg-light col-10"><%= @incident.status.status%></p>
+  <p class="col-sm-2">ステータス</p>
+  <p class = "border bg-light col-sm-10"><%= @incident.status.status%></p>
 </div>
 
 <div class="show-solution row">
-  <p class="col-2">OS</p>
-  <p class = "border bg-light col-10"><%= @incident.os_name.name %></p>
+  <p class="col-sm-2">OS</p>
+  <p class = "border bg-light col-sm-10"><%= @incident.os_name.name %></p>
 </div>
 
 <div class="show-solution row">
-  <p class="col-2">言語</p>
-  <p class = "border bg-light col-10"><%= @incident.coding_lang.name %></p>
+  <p class="col-sm-2">言語</p>
+  <p class = "border bg-light col-sm-10"><%= @incident.coding_lang.name %></p>
 </div>
 
 <hr>
@@ -52,7 +52,7 @@
 
 <hr>
 <% @articles.each_with_index do |article,i| %>
-<p class="col-2">記事<%= i+1 %></p>
+<p class="col-sm-2">記事<%= i+1 %></p>
 
 <div class="show-header border-bottom border-dark">
 
@@ -65,17 +65,17 @@
 </div>
 
 <div class="show-created-time row">
-  <p class="col-2">作成日時</p>
-  <p class="col-10"><%= l article.created_at, format: :default %></p>
+  <p class="col-sm-2">作成日時</p>
+  <p class="col-sm-10"><%= l article.created_at, format: :default %></p>
 </div>
 
 <div class="show-updated-time row">
-  <p class="col-2">更新日時</p>
-  <p class="col-10"><%= l article.updated_at, format: :default %></p>
+  <p class="col-sm-2">更新日時</p>
+  <p class="col-sm-10"><%= l article.updated_at, format: :default %></p>
 </div>
 <div class="show-article row">
   
-  <p class = "border bg-light col-10"><%= safe_join(article.content.split("\n"), tag(:br)) %></p>
+  <p class = "border bg-light col-sm-10"><%= safe_join(article.content.split("\n"), tag(:br)) %></p>
 </div>
   <hr>
 <% end %>
