@@ -19,16 +19,26 @@ class IncidentsController < ApplicationController
   end
 
   def create
-    incident = current_user.incidents.create!(incident_params)
-    redirect_to incident,  notice: "作成しました"
+    @incident = Incident.new(incident_params)
+    if @incident.save
+      redirect_to @incident, notice: "作成しました"
+    else
+      flash.now[:alert] = "作成に失敗しました"
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @incident.update!(incident_params)
-    redirect_to @incident, notice: "更新しました"
+    
+    if @incident.update(incident_params)
+      redirect_to @incident, notice: "更新しました"
+    else
+      flash.now[:alert] = "更新に失敗しました"
+      render :edit
+    end
   end
 
   def destroy
