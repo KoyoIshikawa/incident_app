@@ -32,7 +32,6 @@ class IncidentsController < ApplicationController
   end
 
   def update
-    
     if @incident.update(incident_params)
       redirect_to @incident, notice: "更新しました"
     else
