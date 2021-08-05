@@ -1,22 +1,28 @@
 <h1>検索</h1>
 <%= search_form_for q, url: search_incidents_path do |f| %>
-  <div >
-    <%= f.label :incident_has_every_term, "事象" %>
-    <div class="">
+  <div class="form-group row">
+    <%= f.label :incident_has_every_term, "事象", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.search_field :incident_has_every_term, class: "form-control" %>
     </div>
-    <%= f.search_field :incident_has_every_term, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.label :os_name_name_eq, "OS" %>
-    <%= f.select :os_name_name_eq, OsName.all.collect { |os| [os.name, os.name] }, { prompt: "OSを選択してください" }, { class: "form-control form-control-sm" } %> 
+  <div class="form-group row">
+    <%= f.label :os_name_name_eq, "OS", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.select :os_name_name_eq, OsName.all.collect { |os| [os.name, os.name] }, { prompt: "OSを選択してください" }, { class: "form-control form-control-sm" } %> 
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :coding_lang_name_eq, "言語" %>
-    <%= f.select :coding_lang_name_eq, CodingLang.all.collect { |coding_lang| [coding_lang.name, coding_lang.name] }, { prompt: "言語を選択してください" }, { class: "form-control form-control-sm" } %>
+  <div class="form-group row">
+    <%= f.label :coding_lang_name_eq, "言語", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.select :coding_lang_name_eq, CodingLang.all.collect { |coding_lang| [coding_lang.name, coding_lang.name] }, { prompt: "言語を選択してください" }, { class: "form-control form-control-sm" } %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :status_status_eq, "状態" %>
-    <%= f.select :status_status_eq, Status.all.collect { |status| [status.status, status.status] }, { prompt: "状態を選択してください" }, { class: "form-control form-control-sm" } %>
+  <div class="form-group row">
+    <%= f.label :status_status_eq, "状態", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.select :status_status_eq, Status.all.collect { |status| [status.status, status.status] }, { prompt: "状態を選択してください" }, { class: "form-control form-control-sm" } %>
+    </div>
   </div>
 
   <div class="form-group">
