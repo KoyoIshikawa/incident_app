@@ -8,6 +8,11 @@
     </div>
   <% end %>
 </div>
+<div class="show-incident-user row">
+  <p class="col-sm-2">email</p>
+  <p class = "border bg-light col-sm-10"><%= @incident.user.email %></p>
+</div>
+
 <div class="show-created-time row">
   <p class="col-sm-2">作成日時</p>
   <p class="col-sm-10"><%= l @incident.created_at, format: :default %></p>
