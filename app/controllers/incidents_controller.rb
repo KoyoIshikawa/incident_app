@@ -15,11 +15,11 @@ class IncidentsController < ApplicationController
   end
 
   def new
-    @incident = Incident.new
+    @incident = current_user.incidents.new
   end
 
   def create
-    @incident = Incident.new(incident_params)
+    @incident = current_user.incidents.new(incident_params)
     if @incident.save
       redirect_to @incident, notice: "作成しました"
     else
