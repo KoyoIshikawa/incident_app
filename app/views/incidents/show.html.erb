@@ -9,8 +9,8 @@
   <% end %>
 </div>
 <div class="show-incident-user row">
-  <p class="col-sm-2">Email</p>
-  <p class = "border bg-light col-sm-10"><%= @incident.user.email %></p>
+  <div class="col-sm-2">Email</div>
+  <div class = "border bg-light col-sm-10"><%= @incident.user.email %></div>
 </div>
 
 <div class="show-created-time row">
@@ -51,9 +51,19 @@
 <hr>
 <%# 記事記載欄 %>
 <%= form_with model: [@incident, @article] do |form| %>
-  <%= form.text_field :content %>
-  <%= form.submit %>
+  <div class="form-group row">
+    <div class="col-sm-2">
+      <%= form.label :content, "内容", class: "form-label" %>
+    </div>
+    <div class="col-sm-10">
+      <%= form.text_area :content, class: "form-control" %>    
+    </div>
+  </div>
+  <div class="form-group row ">    
+    <%= form.submit "発行", data: {confirm: "記事を作成しますか？"}, class: "btn btn-primary page-btn"%>
+  </div>
 <% end %>
+
 
 <hr>
 <% @articles.each_with_index do |article,i| %>
