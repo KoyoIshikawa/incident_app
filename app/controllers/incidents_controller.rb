@@ -11,7 +11,7 @@ class IncidentsController < ApplicationController
   def show
     @incident = Incident.find(params[:id])
     @articles = @incident.articles
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   def new
