@@ -103,6 +103,12 @@ main{
     margin-left: auto;
   }
 }
+.field_with_errors {
+  display: contents;
+  input,textarea,select {
+    border: 2px solid red;
+  }
+}
 
 // 576pxまではテーブル表示中止
 @media (max-width: 576px) {
