@@ -1,90 +1,97 @@
-<div class="show-header border-bottom border-dark">
-  <h2>No.<%= sprintf("%008d", @incident.id) %></h2>
-  <% if current_user.id == @incident.user_id %>
-    <div class="update-buttom">
-      <%= link_to "更新", edit_incident_path, class: "btn btn-primary"%>
-      <%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary" %>
-    </div>
-  <% end %>
-</div>
-<div class="show-contents row">
-  <div class="col-sm-2">Email</div>
-  <div class = "border bg-light col-sm-10"><%= @incident.user.email %></div>
-</div>
+<div class="bg-light border border-light">
+  <div class="show-header border-bottom border-dark">
+    <h2>No.<%= sprintf("%008d", @incident.id) %></h2>
+    <% if current_user.id == @incident.user_id %>
+      <div class="update-buttom">
+        <%= link_to "更新", edit_incident_path, class: "btn btn-primary"%>
+        <%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="show-contents row">
+    <div class="col-sm-2">Email</div>
+    <div class = "border bg-light col-sm-10"><%= @incident.user.email %></div>
+  </div>
 
-<div class="show-contents row">
-  <div class="col-sm-2">作成日時</div>
-  <div class="col-sm-10"><%= l @incident.created_at, format: :default %></div>
-</div>
+  <div class="show-contents row">
+    <div class="col-sm-2">作成日時</div>
+    <div class="col-sm-10"><%= l @incident.created_at, format: :default %></div>
+  </div>
 
-<div class="show-contents row">
-  <div class="col-sm-2">更新日時</div>
-  <div class="col-sm-10"><%= l @incident.updated_at, format: :default %></div>
-</div>
+  <div class="show-contents row">
+    <div class="col-sm-2">更新日時</div>
+    <div class="col-sm-10"><%= l @incident.updated_at, format: :default %></div>
+  </div>
 
-<div class="show-contents row">
-  <div class="col-sm-2">事象</div>
-  <div class = "border bg-light col-sm-10"><%= @incident.incident %></div>
-</div>
+  <div class="show-contents row">
+    <div class="col-sm-2">事象</div>
+    <div class = "border bg-light col-sm-10"><%= @incident.incident %></div>
+  </div>
 
-<div class="show-contents row">
-  <div class="col-sm-2">解決方法</div>
-  <div class = "border bg-light col-sm-10"><%= safe_join(@incident.solution.split("\n"), tag(:br)) %></div>
-</div>
+  <div class="show-contents row">
+    <div class="col-sm-2">解決方法</div>
+    <div class = "border bg-light col-sm-10"><%= safe_join(@incident.solution.split("\n"), tag(:br)) %></div>
+  </div>
 
-<div class="show-contents row">
-  <div class="col-sm-2">ステータス</div>
-  <div class = "border bg-light col-sm-10"><%= @incident.status.status%></div>
-</div>
+  <div class="show-contents row">
+    <div class="col-sm-2">ステータス</div>
+    <div class = "border bg-light col-sm-10"><%= @incident.status.status%></div>
+  </div>
 
-<div class="show-contents row">
-  <div class="col-sm-2">OS</div>
-  <div class = "border bg-light col-sm-10"><%= @incident.os_name.name %></div>
-</div>
+  <div class="show-contents row">
+    <div class="col-sm-2">OS</div>
+    <div class = "border bg-light col-sm-10"><%= @incident.os_name.name %></div>
+  </div>
 
-<div class="show-contents row">
-  <div class="col-sm-2">言語</div>
-  <div class = "border bg-light col-sm-10"><%= @incident.coding_lang.name %></div>
+  <div class="show-contents row">
+    <div class="col-sm-2">言語</div>
+    <div class = "border bg-light col-sm-10"><%= @incident.coding_lang.name %></div>
+  </div>
 </div>
 
 <hr>
 <%# 記事記載欄 %>
-<%= form_with model: [@incident, @article] do |form| %>
-  <div class="form-group row">
-    <div class="col-sm-2">
-      <%= form.label :content, "内容", class: "form-label" %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.text_area :content, class: "form-control" %>    
-    </div>
+<div class="bg-light border border-light">
+  <div>
+    <h4 class="col-sm-2">記事一覧</h4>
   </div>
-  <div class="form-group row ">    
-    <%= form.submit "発行", data: {confirm: "記事を作成しますか？"}, class: "btn btn-primary page-btn"%>
-  </div>
-<% end %>
-<hr>
-<% @articles.each_with_index.reverse_each do |article,i| %>
-<div class="show-header border-bottom border-dark">
-  <div class="col-sm-2">記事<%= i+1 %></div>
-    <% if current_user.id == article.user_id %>
-      <div class="update-buttom">
-        <%= link_to "更新", edit_incident_article_path(@incident, article), class: "btn btn-primary"%> 
-        <%= link_to "削除", incident_article_path(@incident, article), method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary"%>
+  <%= form_with model: [@incident, @article] do |form| %>
+    <div class="form-group row">
+      <div>
+        <%= form.label :content, "内容", class: "form-label" %>
       </div>
-    <% end %>
-</div>
-
-<div class="show-created-time row">
-  <div class="col-sm-2">作成日時</div>
-  <div class="col-sm-10"><%= l article.created_at, format: :default %></div>
-</div>
-
-<div class="show-updated-time row">
-  <div class="col-sm-2">更新日時</div>
-  <div class="col-sm-10"><%= l article.updated_at, format: :default %></div>
-</div>
-<div class="show-article row">
-  <div class = "border bg-light col-sm-10"><%= safe_join(article.content.split("\n"), tag(:br)) %></div>
-</div>
+      <div>
+        <%= form.text_area :content, class: "form-control" %>    
+      </div>
+      <div class="new-buttom">
+        <%= form.submit "発行", data: {confirm: "記事を作成しますか？"}, class: "btn btn-primary"%>
+      </div>   
+    </div>
+  <% end %>
   <hr>
-<% end %>
+  <% @articles.each_with_index do |article| %>
+  <div class="show-header border-bottom border-dark">
+    <div class="col-sm-2"><%= article.user.email %></div>
+      <% if current_user.id == article.user_id %>
+        <div class="update-buttom">
+          <%= link_to "更新", edit_incident_article_path(@incident, article), class: "btn btn-primary"%> 
+          <%= link_to "削除", incident_article_path(@incident, article), method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary"%>
+        </div>
+      <% end %>
+  </div>
+
+  <div class="show-created-time row">
+    <div class="col-sm-2">作成日時</div>
+    <div class="col-sm-10"><%= l article.created_at, format: :default %></div>
+  </div>
+
+  <div class="show-updated-time row">
+    <div class="col-sm-2">更新日時</div>
+    <div class="col-sm-10"><%= l article.updated_at, format: :default %></div>
+  </div>
+  <div class="show-article row">
+    <div class = "border bg-light col-sm-10"><%= safe_join(article.content.split("\n"), tag(:br)) %></div>
+  </div>
+    <hr>
+  <% end %>
+</div>

@@ -103,6 +103,11 @@ main{
     margin-left: auto;
   }
 }
+.new-buttom {
+  display: inline-block;
+  margin-top: 5px;
+  text-align: right;
+}
 .field_with_errors {
   display: contents;
   label {
@@ -110,6 +115,7 @@ main{
     font: bold;
   }
 }
+
 
 // 576pxまではテーブル表示中止
 @media (max-width: 576px) {
