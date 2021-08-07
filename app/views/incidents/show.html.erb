@@ -63,7 +63,7 @@
   </div>
 <% end %>
 <hr>
-<% @articles.each_with_index do |article,i| %>
+<% @articles.each_with_index.reverse_each do |article,i| %>
 <div class="show-header border-bottom border-dark">
   <div class="col-sm-2">記事<%= i+1 %></div>
     <% if current_user.id == article.user_id %>
