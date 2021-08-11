@@ -3,8 +3,8 @@
 /* 全体 */
 
 .base-container {
-  margin: 0 auto;
-  padding: 1rem;
+  margin: 56px auto 0px auto;
+  padding-top: 1em;
 }
 
 /* max-width */
@@ -71,9 +71,10 @@ main{
   color: white;
 }
 
-.form-group,.show-contents{
+.form-group{
   margin: 5px auto;
 }
+
 
 .devise-label{
   text-align: center;
@@ -99,6 +100,7 @@ main{
 .new-button,.update-button{
   display: inline-block;
   text-align: right;
+  margin-top: 1em;
 }
 .field_with_errors {
   display: contents;
@@ -107,6 +109,10 @@ main{
     font: bold;
   }
 }
+.show-header,.show-contents,.show-articles{
+  margin: 0px 0px 1em 0px;
+}
+
 
 
 // 576pxまではテーブル表示中止

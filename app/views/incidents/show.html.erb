@@ -1,5 +1,5 @@
 <div class="show-header bg-light row border-bottom">
-  <p class="show-title col">No.<%= sprintf("%008d", @incident.id) %></p>
+  <h2 class="show-title col">No.<%= sprintf("%008d", @incident.id) %></h2>
   <div class="update-button col ">
     <% if current_user.id == @incident.user_id %>
         <%= link_to "更新", edit_incident_path, class: "btn btn-primary"%>
@@ -7,9 +7,8 @@
     <% end %>
   </div>
 </div>
-<hr>
-<div class="show-contents row">
-  <div class="row email">
+<div class="show-contents bg-light row border-bottom">
+  <div class="Email row">
     <p class="col-sm-2">Email</p>
     <p class = "border col-sm-10"><%= @incident.user.email %></p>
   </div>
@@ -46,9 +45,7 @@
     <p class = "border bg-light col-sm-10"><%= @incident.coding_lang.name %></p>
   </div>
 </div>
-<hr>
-<%# 記事記載欄 %>
-<div class="show-article bg-light border border-light">
+<div class="show-articles bg-light row">
   <div>
     <h4 class="col-sm-2">記事</h4>
   </div>
