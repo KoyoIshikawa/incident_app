@@ -1,1 +1,4 @@
+<%= render partial: "search_form", locals: { q: @q, incidents: @results } %>
+<%= render partial: "pagenation", locals: { incidents: @results } %>
 <%= render partial: "list", locals: { q: @q, incidents: @results } %>
+<%= render partial: "pagenation", locals: { incidents: @results } %>

@@ -3,8 +3,8 @@
 /* 全体 */
 
 .base-container {
-  margin: 0 auto;
-  padding: 1rem;
+  margin: 56px auto 0px auto;
+  padding-top: 1em;
 }
 
 /* max-width */
@@ -72,20 +72,22 @@ main{
 }
 
 .form-group{
-  margin: 15px auto;
+  margin: 5px auto;
 }
+
 
 .devise-label{
   text-align: center;
 }
 
 // new.html.erb
-.new-page-btn{
+.page-btn{
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
   width: 300px;
   max-width: 100%;
 }
+
 
 // index
 // テーブル全体にリンクを適用時にコメント解除
@@ -95,10 +97,55 @@ main{
 
 
 // show
-.show-header{
-  display: flex;
-  width: 100%;
-  .update-buttom{
-    margin-left: auto;
+.new-button,.update-button{
+  display: inline-block;
+  text-align: right;
+}
+.field_with_errors {
+  display: contents;
+  label {
+    color: red;
+    font: bold;
   }
+}
+.show-header,.show-contents,.show-articles{
+  margin: 0px 0px 1em 0px;
+}
+
+
+
+// 576pxまではテーブル表示中止
+@media (max-width: 576px) {
+  table {
+    border: 0px;
+  }
+  table thead {
+    display: none;
+  }
+  table tr {
+    margin-bottom: 10px;
+    display: block;
+    border: 2px solid #ddd;
+  }
+  table th,
+  table td {
+    width: 100%;
+    display: block;
+    text-align: right;
+  }
+  table td:before,th::before{
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+  table .incident::before {
+    text-align: left;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+  }
+  table .incident{
+    text-align: left;
+  }
+
 }

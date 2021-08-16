@@ -2,8 +2,12 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[edit update destroy]
 
   def create
-    article = current_user.articles.create!(content: article_params[:content], incident_id: params[:incident_id])
-    redirect_to "/incidents/#{article.incident.id}",  notice: "作成しました"
+    @article = current_user.articles.new(content: article_params[:content], incident_id: params[:incident_id])
+    if @article.save
+      redirect_to "/incidents/#{@article.incident.id}", notice: "作成しました"
+    else
+      redirect_to "/incidents/#{@article.incident.id}", alert: "記事を入力してください"
+    end
   end
 
   def edit 

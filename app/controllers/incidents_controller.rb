@@ -10,25 +10,34 @@ class IncidentsController < ApplicationController
 
   def show
     @incident = Incident.find(params[:id])
-    @articles = @incident.articles
-    @article = Article.new
+    @articles = @incident.articles.order(id: :DESC)
+    @article = current_user.articles.new
   end
 
   def new
-    @incident = Incident.new
+    @incident = current_user.incidents.new
   end
 
   def create
-    incident = current_user.incidents.create!(incident_params)
-    redirect_to incident,  notice: "作成しました"
+    @incident = current_user.incidents.new(incident_params)
+    if @incident.save
+      redirect_to @incident, notice: "作成しました"
+    else
+      flash.now[:alert] = "作成に失敗しました"
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @incident.update!(incident_params)
-    redirect_to @incident, notice: "更新しました"
+    if @incident.update(incident_params)
+      redirect_to @incident, notice: "更新しました"
+    else
+      flash.now[:alert] = "更新に失敗しました"
+      render :edit
+    end
   end
 
   def destroy
