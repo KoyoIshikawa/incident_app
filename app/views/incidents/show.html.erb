@@ -1,4 +1,4 @@
-<div class="show-header bg-light row border-bottom">
+<div class="title bg-light row border-bottom">
   <h2 class="show-title col">No.<%= sprintf("%008d", @incident.id) %></h2>
   <div class="update-button col ">
     <% if current_user.id == @incident.user_id %>
@@ -7,7 +7,7 @@
     <% end %>
   </div>
 </div>
-<div class="show-contents bg-light row border-bottom">
+<div class="contents bg-light row border-bottom">
   <div class="Email row">
     <p class="col-sm-2">Email</p>
     <p class = "border col-sm-10"><%= @incident.user.email %></p>
@@ -45,7 +45,7 @@
     <p class = "border bg-light col-sm-10"><%= @incident.coding_lang.name %></p>
   </div>
 </div>
-<div class="show-articles bg-light row">
+<div class="articles bg-light row">
   <h4 class="col-sm-2">記事</h4>
   <%= form_with model: [@incident, @article] do |form| %>
     <div class="form-group row">
