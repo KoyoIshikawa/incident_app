@@ -109,9 +109,13 @@ main{
   }
 }
 .title,.contents,.articles{
-  margin: 0px 0px 1em 0px;
+  margin: 0px 0px 5px 0px;
 }
-
+.title{
+  h2{
+    margin-bottom: 0px;
+  }
+}
 
 
 // 576pxまではテーブル表示中止
