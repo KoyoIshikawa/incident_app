@@ -10,39 +10,35 @@
 </div>
 <div class="contents bg-light row border-bottom">
   <div class="row incident">
-    <p class="col-3">事象</p>
+    <p class="col-3 show-label">事象</p>
     <p class = "col-9"><%= @incident.incident %></p>
   </div>
-
   <div class="row solution">
-    <p class="col-3">解決方法</p>
+    <p class="col-3 show-label">解決方法</p>
     <p class = "col-9"><%= safe_join(@incident.solution.split("\n"), tag(:br)) %></p>
   </div>
   <div class="Email row">
-    <p class="col-3">Email</p>
+    <p class="col-3 show-label">Email</p>
     <p class = "col-9"><%= @incident.user.email %></p>
   </div>
   <div class="row create_at">
-    <p class="col-3">作成日時</p>
+    <p class="col-3 show-label">作成日時</p>
     <p class="col-9"><%= l @incident.created_at, format: :long %></p>
   </div>
   <div class="row updated_at">
-    <p class="col-3">更新日時</p>
+    <p class="col-3 show-label">更新日時</p>
     <p class="col-9"><%= l @incident.updated_at, format: :long %></p>
   </div>
-
-
   <div class="row status">
-    <p class="col-3">ステータス</p>
+    <p class="col-3 show-label">ステータス</p>
     <p class = "col-9"><%= @incident.status.status%></p>
   </div>
-
   <div class="row os">
-    <p class="col-3">OS</p>
+    <p class="col-3 show-label">OS</p>
     <p class = "col-9"><%= @incident.os_name.name %></p>
   </div>
   <div class="row coding_lang">
-    <p class="col-3">言語</p>
+    <p class="col-3 show-label">言語</p>
     <p class = "col-9"><%= @incident.coding_lang.name %></p>
   </div>
 </div>
