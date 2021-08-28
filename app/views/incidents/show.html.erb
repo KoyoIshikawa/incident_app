@@ -9,11 +9,20 @@
   </div>
 </div>
 <div class="contents bg-light row border-bottom">
+  <div class="row incident">
+    <p class="col-sm-2">事象</p>
+    <p class = " bg-light col-sm-10"><%= @incident.incident %></p>
+  </div>
+
+  <div class="row solution">
+    <p class="col-sm-2">解決方法</p>
+    <p class = " bg-light col-sm-10"><%= safe_join(@incident.solution.split("\n"), tag(:br)) %></p>
+  </div>
   <div class="Email row">
     <p class="col-sm-2">Email</p>
-    <p class = "border col-sm-10"><%= @incident.user.email %></p>
+    <p class = " col-sm-10"><%= @incident.user.email %></p>
   </div>
-  <div class="row create_at" id="">
+  <div class="row create_at">
     <p class="col-sm-2">作成日時</p>
     <p class="col-sm-10"><%= l @incident.created_at, format: :default %></p>
   </div>
@@ -22,28 +31,19 @@
     <p class="col-sm-10"><%= l @incident.updated_at, format: :default %></p>
   </div>
 
-  <div class="row incident">
-    <p class="col-sm-2">事象</p>
-    <p class = "border bg-light col-sm-10"><%= @incident.incident %></p>
-  </div>
-
-  <div class="row solution">
-    <p class="col-sm-2">解決方法</p>
-    <p class = "border bg-light col-sm-10"><%= safe_join(@incident.solution.split("\n"), tag(:br)) %></p>
-  </div>
 
   <div class="row status">
     <p class="col-sm-2">ステータス</p>
-    <p class = "border bg-light col-sm-10"><%= @incident.status.status%></p>
+    <p class = " bg-light col-sm-10"><%= @incident.status.status%></p>
   </div>
 
   <div class="row os">
     <p class="col-sm-2">OS</p>
-    <p class = "border bg-light col-sm-10"><%= @incident.os_name.name %></p>
+    <p class = " bg-light col-sm-10"><%= @incident.os_name.name %></p>
   </div>
   <div class="row coding_lang">
     <p class="col-sm-2">言語</p>
-    <p class = "border bg-light col-sm-10"><%= @incident.coding_lang.name %></p>
+    <p class = " bg-light col-sm-10"><%= @incident.coding_lang.name %></p>
   </div>
 </div>
 <div class="articles bg-light row">
@@ -78,7 +78,7 @@
     <div class="col-sm-2">更新日時</div>
     <div class="col-sm-10"><%= l article.updated_at, format: :default %></div>
   </div>
-  <div class="show-article border">
+  <div class="show-article ">
       <%= safe_join(article.content.split("\n"), tag(:br)) %>
   </div>
   <% end %>
