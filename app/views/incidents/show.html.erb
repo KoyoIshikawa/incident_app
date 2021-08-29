@@ -42,8 +42,8 @@
     <p class = "col-9"><%= @incident.coding_lang.name %></p>
   </div>
 </div>
-<div class="articles bg-light row">
-  <div class="articels-form">
+<div class="articles bg-light">
+  <div class="articels-form-group">
     <h4 class="account-name">アカウント名</h4>
     <div class="article-form border">
       <%= form_with model: [@incident, @article] do |form| %>
@@ -53,7 +53,6 @@
         <div class="article-new-btn">
           <%= form.submit "発行", data: {confirm: "記事を作成しますか？"}, class: "btn btn-primary"%>
         </div>   
-        </div>
       <% end %>
     </div>
   </div>

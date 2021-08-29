@@ -97,9 +97,6 @@ main{
 
 
 // show
-.article-new-btn,.update-button {
-  text-align: right;
-}
 .field_with_errors {
   display: contents;
   label {
@@ -118,8 +115,18 @@ main{
 .show-label{
   text-align: center;
 }
-.article-form{
-  padding: 10px;
+.articles{
+  padding-top: 20px;
+  .article-form{
+    padding: 10px;
+  }
+  .articels-form-group {
+    margin: 0px 15px 20px 15px;
+  }
+  .article-new-btn,.update-button {
+    text-align: right;
+    margin-top: 10px;
+  }
 }
 
 
