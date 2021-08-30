@@ -62,7 +62,6 @@
         <div class="col">
           <%= article.user.email %>
         </div>
-        
         <div class="update-button col">
           作成日時：<%= l article.created_at, format: :long %>
           <% if article.created_at < article.updated_at %>
