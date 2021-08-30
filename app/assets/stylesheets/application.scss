@@ -72,7 +72,7 @@ main{
 }
 
 .form-group{
-  margin: 5px auto;
+  margin: 10px auto;
 }
 
 
@@ -97,10 +97,6 @@ main{
 
 
 // show
-.new-button,.update-button{
-  display: inline-block;
-  text-align: right;
-}
 .field_with_errors {
   display: contents;
   label {
@@ -108,10 +104,35 @@ main{
     font: bold;
   }
 }
-.show-header,.show-contents,.show-articles{
-  margin: 0px 0px 1em 0px;
+.title{
+  .update-button {
+    text-align: right;
+  }
 }
-
+.title,.contents,.articles{
+  margin: 0px 0px 5px 0px;
+}
+.title{
+  h2{
+    margin-bottom: 0px;
+  }
+}
+.show-label{
+  text-align: center;
+}
+.articles{
+  padding-top: 20px;
+  .article-form{
+    padding: 10px;
+  }
+  .articels-form-group {
+    margin: 0px 15px 20px 15px;
+  }
+  .article-new-btn,.update-button {
+    text-align: right;
+    margin-top: 10px;
+  }
+}
 
 
 // 576pxまではテーブル表示中止
@@ -123,7 +144,7 @@ main{
     display: none;
   }
   table tr {
-    margin-bottom: 10px;
+    margin: 7px ;
     display: block;
     border: 2px solid #ddd;
   }
@@ -149,3 +170,9 @@ main{
   }
 
 }
+
+// search_form
+.col-form-label{
+  font-size: large;
+}
+
