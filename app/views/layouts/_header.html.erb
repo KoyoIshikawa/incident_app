@@ -22,7 +22,7 @@
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
           </li>
           <li class="nav-item">
-            <%= "【ログイン中のアドレス】#{current_user.email}" %>
+            <%= "【ログイン中のアドレス】#{current_user.username}" %>
           </li>
         <% else %>
           <%# 非ログイン時 %>
