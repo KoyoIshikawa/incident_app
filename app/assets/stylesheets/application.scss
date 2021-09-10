@@ -171,7 +171,9 @@ header{
 }
 
 table{
-  
+  .w-status, .w-coding-lang, .w-OS{
+    width: 75px;
+  }
 }
 
 // search_form
