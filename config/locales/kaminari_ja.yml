@@ -5,7 +5,7 @@ ja:
       last: "&raquo;"
       previous: "&lsaquo;"
       next: "&rsaquo;"
-      truncate: "..."
+      truncate: "&hellip;"
   helpers:
     page_entries_info:
       one_page:
