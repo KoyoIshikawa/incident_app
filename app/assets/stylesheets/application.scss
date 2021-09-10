@@ -133,7 +133,7 @@ header{
   }
 }
 
-
+// listクラス
 // 576pxまではテーブル表示中止
 @media (max-width: 576px) {
   table {
@@ -170,8 +170,11 @@ header{
 
 }
 
+table{
+  table-layout:auto
+}
+
 // search_form
 .col-form-label{
   font-size: large;
 }
-

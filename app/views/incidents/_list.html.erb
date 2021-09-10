@@ -14,11 +14,11 @@
       <% incidents.each do |incident| %>
         <tr>
           <th data-label="No." scope="row"><%= link_to sprintf("%008d", incident.id), incident %></th>
-          <td data-label="事象" class="incident"><%= incident.incident %></td>
-          <td data-label="ステータス" ><%= truncate(incident.status.status,length: 20) %></td>
-          <td data-label="言語" ><%= incident.coding_lang.name %></td>
-          <td data-label="OS" ><%= incident.os_name.name %></td>
-          <td data-label="作成日時" ><%= l incident.created_at, format: :long %></td>
+          <td data-label="事象" class="w-incident"><%= incident.incident %></td>
+          <td data-label="ステータス" class="w-status"><%= truncate(incident.status.status,length: 20) %></td>
+          <td data-label="言語" class="w-coding-lang"><%= incident.coding_lang.name %></td>
+          <td data-label="OS" class="w-OS"><%= incident.os_name.name %></td>
+          <td data-label="作成日時" class="w-created-at"><%= l incident.created_at, format: :long %></td>
         </tr>
       <% end %>
     </tbody>
