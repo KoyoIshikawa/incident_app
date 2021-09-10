@@ -7,6 +7,7 @@
         <th scope="col" class="w-status"><%= sort_link(q, :status_id, "状態") %></th>
         <th scope="col" class="w-coding-lang"><%= sort_link(q, :coding_lang_id, "言語") %> </th>
         <th scope="col" class="w-OS"><%= sort_link(q, :os_name_id, "OS") %> </th>
+        <th scope="col" class="w-username"><%= sort_link(q, :user_id, "ユーザ名") %> </th>
         <th scope="col" class="w-created-at"><%= sort_link(q, :created_at, "作成日時") %> </th>
       </tr>
     </thead>
@@ -18,6 +19,7 @@
           <td data-label="ステータス" ><%= truncate(incident.status.status,length: 20) %></td>
           <td data-label="言語" ><%= incident.coding_lang.name %></td>
           <td data-label="OS" ><%= incident.os_name.name %></td>
+          <td data-label="User" ><%= incident.user.username %></td>
           <td data-label="作成日時" ><%= l incident.created_at, format: :long %></td>
         </tr>
       <% end %>
