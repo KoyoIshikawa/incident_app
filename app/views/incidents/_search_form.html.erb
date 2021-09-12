@@ -3,13 +3,19 @@
     <div class="form-group row">
       <%= f.label :incident_has_every_term, "事象", class: "col-2 col-form-label" %>
       <div class="col-10">
-        <%= f.search_field :incident_has_every_term, class: "form-control" %>
+        <%= f.search_field :incident_has_every_term, class: "form-control col-10" %>
+      </div>
+    </div>
+     <div class="form-group row">
+      <%= f.label :user_username_eq, "ユーザ", class: "col-2 col-form-label" %>
+      <div class="col-10">
+        <%= f.search_field :user_username_eq, class: "form-control" %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :os_name_name_eq, "OS", class: "col-2 col-form-label" %>
+      <%= f.label :status_status_eq, "状態", class: "col-2 col-form-label" %>
       <div class="col-10">
-        <%= f.select :os_name_name_eq, OsName.all.collect { |os| [os.name, os.name] }, { prompt: "OSを選択してください" }, { class: "form-control form-control-sm" } %> 
+        <%= f.select :status_status_eq, Status.all.collect { |status| [status.status, status.status] }, { prompt: "状態を選択してください" }, { class: "form-control form-control-sm" } %>
       </div>
     </div>
     <div class="form-group row">
@@ -19,9 +25,9 @@
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :status_status_eq, "状態", class: "col-2 col-form-label" %>
+      <%= f.label :os_name_name_eq, "OS", class: "col-2 col-form-label" %>
       <div class="col-10">
-        <%= f.select :status_status_eq, Status.all.collect { |status| [status.status, status.status] }, { prompt: "状態を選択してください" }, { class: "form-control form-control-sm" } %>
+        <%= f.select :os_name_name_eq, OsName.all.collect { |os| [os.name, os.name] }, { prompt: "OSを選択してください" }, { class: "form-control form-control-sm" } %> 
       </div>
     </div>
 
