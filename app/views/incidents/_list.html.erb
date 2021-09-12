@@ -19,7 +19,7 @@
           <td data-label="ステータス" ><%= truncate(incident.status.status,length: 20) %></td>
           <td data-label="言語" ><%= incident.coding_lang.name %></td>
           <td data-label="OS" ><%= incident.os_name.name %></td>
-          <td data-label="User" ><%= incident.user.username %></td>
+          <td data-label="ユーザ" ><%= incident.user.username %></td>
           <td data-label="作成日時" ><%= l incident.created_at, format: :long %></td>
         </tr>
       <% end %>
