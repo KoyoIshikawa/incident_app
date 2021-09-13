@@ -134,8 +134,14 @@ header{
 }
 
 
-// 576pxまではテーブル表示中止
-@media (max-width: 576px) {
+// search_form
+.col-form-label {
+  font-size: large;
+}
+
+// listクラス
+// 768pxまではテーブル表示中止
+@media (max-width: 768px) {
   table {
     border: 0px;
   }
@@ -167,11 +173,27 @@ header{
   table .incident{
     text-align: left;
   }
-
+  // search_form
+  .col-form-label {
+    font-size: 15px;
+  }
 }
 
-// search_form
-.col-form-label{
-  font-size: large;
+table{
+  .w-status,
+  .w-coding-lang,
+  .w-OS{
+    width: 75px;
+  }
+  .w-username {
+    width: 100px;
+  }
+  .w-created-at
+  {
+    width: 15%;
+  }
+  .w-No {
+    width: 10%;
+  }
 }
 

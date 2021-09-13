@@ -2,22 +2,24 @@
   <table class="table event_table">
     <thead class="thead-light">
       <tr>
-        <th scope="col"><%= sort_link(q, :id, "No.") %></th>
-        <th scope="col"><%= sort_link(q, :incident, "事象") %></th>
-        <th scope="col"><%= sort_link(q, :status_id, "状態") %></th>
-        <th scope="col"><%= sort_link(q, :coding_lang_id, "言語") %> </th>
-        <th scope="col"><%= sort_link(q, :os_name_id, "OS") %> </th>
-        <th scope="col"><%= sort_link(q, :created_at, "作成日時") %> </th>
+        <th scope="col" class="w-No"><%= sort_link(q, :id, "No.") %></th>
+        <th scope="col" class="w-incident"><%= sort_link(q, :incident, "事象") %></th>
+        <th scope="col" class="w-status"><%= sort_link(q, :status_id, "状態") %></th>
+        <th scope="col" class="w-coding-lang"><%= sort_link(q, :coding_lang_id, "言語") %> </th>
+        <th scope="col" class="w-OS"><%= sort_link(q, :os_name_id, "OS") %> </th>
+        <th scope="col" class="w-username"><%= sort_link(q, :user_id, "ユーザ") %> </th>
+        <th scope="col" class="w-created-at"><%= sort_link(q, :created_at, "作成日時") %> </th>
       </tr>
     </thead>
     <tbody>
       <% incidents.each do |incident| %>
         <tr>
           <th data-label="No." scope="row"><%= link_to sprintf("%008d", incident.id), incident %></th>
-          <td data-label="事象" class="incident"><%= incident.incident %></td>
+          <td data-label="事象" ><%= incident.incident %></td>
           <td data-label="ステータス" ><%= truncate(incident.status.status,length: 20) %></td>
           <td data-label="言語" ><%= incident.coding_lang.name %></td>
           <td data-label="OS" ><%= incident.os_name.name %></td>
+          <td data-label="ユーザ" ><%= incident.user.username %></td>
           <td data-label="作成日時" ><%= l incident.created_at, format: :long %></td>
         </tr>
       <% end %>
