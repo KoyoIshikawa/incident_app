@@ -17,9 +17,9 @@
     <p class="col-3 show-label">解決方法</p>
     <p class = "col-9"><%= safe_join(@incident.solution.split("\n"), tag(:br)) %></p>
   </div>
-  <div class="Email row">
-    <p class="col-3 show-label">Email</p>
-    <p class = "col-9"><%= @incident.user.email %></p>
+  <div class="username row">
+    <p class="col-3 show-label">ユーザ</p>
+    <p class = "col-9"><%= @incident.user.username %></p>
   </div>
   <div class="row create_at">
     <p class="col-3 show-label">作成日時</p>

@@ -1,54 +1,56 @@
-<%= form_with model: incident, local: true do |form| %>
-  <div class="form-group row">
-    <div class="col-sm-2">
-      <%= form.label :user, "Email", class: "form-label"%>
+<div class="contents">
+  <%= form_with model: incident, local: true do |form| %>
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <%= form.label :user, "Email", class: "form-label"%>
+      </div>
+      <div class="col-sm-10">
+        <%= form.label :user, "#{incident.user.username}", class: "form-control-plaintext" %>
+      </div>
     </div>
-    <div class="col-sm-10">
-      <%= form.label :user, "#{incident.user.email}", class: "form-control-plaintext" %>
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <%= form.label :incident, "事象", class: "col-form-label" %>
+      </div>
+      <div class="col-sm-10">
+        <%= form.text_field :incident, class: "form-control" %>    
+      </div>
     </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-2">
-      <%= form.label :incident, "事象", class: "form-label" %>
+    <div class="form-group row">
+      <div class="col-sm-2"> 
+        <%= form.label :solution, "解決方法", class: "col-form-label" %>
+      </div>
+      <div class="col-sm-10">
+        <%= form.text_area :solution, class: "form-control solution-textfield" %>
+      </div>
     </div>
-    <div class="col-sm-10">
-      <%= form.text_field :incident, class: "form-control" %>    
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <%= form.label :os_name, class: "col-form-label" %>
+      </div>
+      <div class="col-sm-10">
+        <%= form.select :os_name_id, OsName.all.collect { |os| [os.name, os.id] }, { prompt: "OSを選択してください" }, { class: "form-control" } %>
+      </div>
     </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-2"> 
-      <%= form.label :solution, "解決方法", class: "col-form-label" %>
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <%= form.label :status, class: "col-form-label" %>
+      </div>
+      <div class="col-sm-10">
+        <%= form.select :status_id, Status.all.collect { |status| [status.status, status.id] }, { prompt: "ステータスを選択してください" }, { class: "form-control" } %>
+      </div>
     </div>
-    <div class="col-sm-10">
-      <%= form.text_area :solution, class: "form-control" %>
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <%= form.label :coding_lang, class: "col-form-label" %>
+      </div>
+      <div class="col-sm-10">
+        <%= form.select :coding_lang_id, CodingLang.all.collect { |coding_lang| [coding_lang.name, coding_lang.id] }, { prompt: "言語を選択してください" }, { class: "form-control" } %>
+      </div>
     </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-2">
-      <%= form.label :os_name, class: "col-form-label" %>
+    <div class="form-group row ">    
+      <%= form.submit button_value, data: {confirm: "#{button_value}しますか？"}, class: "btn btn-primary page-btn"%>
     </div>
-    <div class="col-sm-10">
-      <%= form.select :os_name_id, OsName.all.collect { |os| [os.name, os.id] }, { prompt: "OSを選択してください" }, { class: "form-control" } %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-2">
-      <%= form.label :status, class: "col-form-label" %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.select :status_id, Status.all.collect { |status| [status.status, status.id] }, { prompt: "ステータスを選択してください" }, { class: "form-control" } %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-2">
-      <%= form.label :coding_lang, class: "col-form-label" %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.select :coding_lang_id, CodingLang.all.collect { |coding_lang| [coding_lang.name, coding_lang.id] }, { prompt: "言語を選択してください" }, { class: "form-control" } %>
-    </div>
-  </div>
-  <div class="form-group row ">    
-    <%= form.submit button_value, data: {confirm: "#{button_value}しますか？"}, class: "btn btn-primary page-btn"%>
-  </div>
-<% end %>
-<%= link_to "戻る", :back, data: {confirm: "保存しないで戻ります。よろしいですか？"}, class: "btn btn-secondary page-btn" %>
+  <% end %>
+  <%= link_to "戻る", :back, data: {confirm: "保存しないで戻ります。よろしいですか？"}, class: "btn btn-secondary page-btn" %>
+</div>
