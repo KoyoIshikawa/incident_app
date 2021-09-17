@@ -17,7 +17,7 @@
     <p class="col-3 show-label">解決方法</p>
     <p class = "col-9"><%= safe_join(@incident.solution.split("\n"), tag(:br)) %></p>
   </div>
-  <div class="Email row">
+  <div class="username row">
     <p class="col-3 show-label">ユーザ</p>
     <p class = "col-9"><%= @incident.user.username %></p>
   </div>
