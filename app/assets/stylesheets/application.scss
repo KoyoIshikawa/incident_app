@@ -79,7 +79,7 @@ header{
   text-align: center;
 }
 
-// new.html.erb
+// 投稿フォーム
 .page-btn{
   display: block;
   margin: 10px auto;
@@ -87,13 +87,11 @@ header{
   max-width: 100%;
 }
 
-
-// index
-// テーブル全体にリンクを適用時にコメント解除
-// .event_table tr:hover {
-//   background-color: #d9efff;
-// }
-
+.contents{
+  .solution-textfield{
+    height: 110px;
+  }
+}
 
 // show
 .field_with_errors {
