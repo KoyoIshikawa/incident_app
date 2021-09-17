@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_09_17_021634) do
 
   create_table "incidents", force: :cascade do |t|
     t.text "incident", null: false
-    t.text "solution", default: "こんにちは\nお元気ですか\nではさようなら\n", null: false
+    t.text "solution", default: "【やりたいこと】\n【原因】\n【対応方法】\n【参考資料】\n", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
