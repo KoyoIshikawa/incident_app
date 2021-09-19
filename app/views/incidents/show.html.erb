@@ -60,7 +60,7 @@
     <% @articles.each_with_index do |article| %>
       <div class="articles-contents-top row">
         <div class="col">
-          <%= article.user.email %>
+          <%= article.user.username %>
         </div>
         <div class="update-button col">
           作成日時：<%= l article.created_at, format: :long %>
