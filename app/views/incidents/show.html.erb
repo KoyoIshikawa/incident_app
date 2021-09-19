@@ -44,7 +44,7 @@
 </div>
 <div class="articles bg-light">
   <div class="articels-form-group">
-    <h4 class="account-name">アカウント名</h4>
+    <h4 class="account-name"><%= current_user.username %></h4>
     <div class="article-form border">
       <%= form_with model: [@incident, @article] do |form| %>
         <div>
