@@ -58,26 +58,24 @@
   </div>
   <div class="articles-contents">
     <% @articles.each_with_index do |article| %>
-      <div class="content">
-        <div class="articles-contents-top row">
-          <div class="col">
+      <div class="content border-bottom">
+        <div class="top row">
+          <div class="col article-username">
             <%= article.user.username %>
           </div>
-          <div class="update-button col">
+          <div class="col update-info">
             作成日時：<%= l article.created_at, format: :long %>
             <% if article.created_at < article.updated_at %>
               更新済み
             <% end %>
             <% if current_user.id == article.user_id %>
-                <%= link_to "更新", edit_incident_article_path(@incident, article), class: "btn btn-primary"%> 
-                <%= link_to "削除", incident_article_path(@incident, article), method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary"%>
+                <%= link_to "更新", edit_incident_article_path(@incident, article) %> 
+                <%= link_to "削除", incident_article_path(@incident, article), method: :delete, data: { confirm: "削除しますか?" } %>
             <% end %>
           </div>
         </div>
-        <div class="articles-contents-bottom">
-          <div class="show-article ">
-              <%= safe_join(article.content.split("\n"), tag(:br)) %>
-          </div>
+        <div class="bottom row">
+          <p class="col"><%= safe_join(article.content.split("\n"), tag(:br)) %></p>
         </div>
       </div>
     <% end %>

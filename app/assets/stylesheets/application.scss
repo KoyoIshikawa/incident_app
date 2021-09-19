@@ -125,9 +125,25 @@ header{
   }
   .articels-form-group,
   .articles-contents {
-    margin: 0px 15px 20px 15px;
+    .content{
+      padding: 24px 32px;
+      width: 100%;
+      font-size: 14px;
+      .top,.bottom{
+        margin: 5px;
+      }
+      .top{
+        height: 30px;
+        .update-info{
+          text-align: right;
+        }
+      }
+      .bottom{
+        margin-bottom: 24px;
+      }
+    }
   }
-  .article-new-btn,.update-button {
+  .article-new-btn {
     text-align: right;
     margin-top: 10px;
   }
