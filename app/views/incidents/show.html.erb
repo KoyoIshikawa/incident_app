@@ -43,7 +43,7 @@
   </div>
 </div>
 <div class="articles bg-light">
-  <div class="articels-form-group">
+  <div class="articels-form-group border-bottom">
     <h4 class="account-name"><%= current_user.username %>  投稿する </h4>
     <div class="article-form border">
       <%= form_with model: [@incident, @article] do |form| %>
@@ -60,13 +60,13 @@
     <% @articles.each_with_index do |article| %>
       <div class="content border-bottom">
         <div class="top row">
-          <div class="col article-username">
-            <%= article.user.username %>
+          <div class="col-sm article-username">
+            ユーザ：<%= article.user.username %>
           </div>
-          <div class="col update-info">
-            作成日時：<%= l article.created_at, format: :long %>
+          <div class="col-sm update-info">
+            <%= l article.created_at, format: :long %>  
             <% if article.created_at < article.updated_at %>
-              更新済み
+              (更新済み)
             <% end %>
             <% if current_user.id == article.user_id %>
                 <%= link_to "更新", edit_incident_article_path(@incident, article) %> 
