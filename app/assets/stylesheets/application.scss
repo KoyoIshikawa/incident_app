@@ -135,7 +135,7 @@ header{
       padding: 24px 32px;
       width: 100%;
       font-size: 14px;
-      .top,.bottom{
+      .top{
         margin: 5px;
       }
       .top{
@@ -146,6 +146,7 @@ header{
       }
       .bottom{
         margin-bottom: 24px;
+        margin: 5px;
       }
     }
   }
@@ -200,13 +201,15 @@ header{
   .col-form-label {
     font-size: 15px;
   }
+
+  // show articles
   .articles {
     .articels-form-group {
-      padding: 24px 32px;
+      padding: 12px 0px;
       width: 100%;
 
       .article-form {
-        padding: 10px;
+        padding: 15px;
 
         .form-control {
           height: 110px;
@@ -216,12 +219,11 @@ header{
 
     .articles-contents {
       .content {
-        padding: 24px 32px;
+        padding: 12px 0px;
         width: 100%;
         font-size: 14px;
 
-        .top,
-        .bottom {
+        .top{
           margin: 5px;
         }
 
@@ -230,6 +232,7 @@ header{
 
           .update-info {
             text-align: right;
+            margin: 5px;
           }
         }
 

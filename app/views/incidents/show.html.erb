@@ -60,10 +60,10 @@
     <% @articles.each_with_index do |article| %>
       <div class="content border-bottom">
         <div class="top row">
-          <div class="col-sm article-username">
+          <div class="col article-username">
             ユーザ：<%= article.user.username %>
           </div>
-          <div class="col-sm update-info">
+          <div class="col update-info">
             <%= l article.created_at, format: :long %>  
             <% if article.created_at < article.updated_at %>
               (更新済み)
