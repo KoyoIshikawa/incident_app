@@ -2,7 +2,7 @@
   <%= form_with model: incident, local: true do |form| %>
     <div class="form-group row">
       <div class="col-sm-2">
-        <%= form.label :user, "Email", class: "form-label"%>
+        <%= form.label :user, "ユーザ", class: "form-label"%>
       </div>
       <div class="col-sm-10">
         <%= form.label :user, "#{incident.user.username}", class: "form-control-plaintext" %>
