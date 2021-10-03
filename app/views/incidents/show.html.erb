@@ -2,10 +2,18 @@
   <h2 class="show-title col">No.<%= sprintf("%008d", @incident.id) %></h2>
   <div class="update-button col ">
     <% if current_user.id == @incident.user_id %>
-        <%= link_to "更新", edit_incident_path, class: "btn btn-primary"%>
-        <%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary" %>
+      <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        <span><i class="fas fa-ellipsis-h"></i></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><%= link_to "更新", edit_incident_path, class: "dropdown-item"%></li>
+        <li><%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" }, class: "dropdown-item" %></li>
+        <li><%= link_to "戻る", :back, class: "dropdown-item" %></li>
+      </ul>
     <% end %>
-    <%= link_to "戻る", :back, class: "btn btn-primary" %>
+      <%= link_to "更新", edit_incident_path, class: "btn btn-primary"%>
+      <%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary" %>
+      <%= link_to "戻る", :back, class: "btn btn-primary" %>
   </div>
 </div>
 <div class="contents bg-light row border-bottom">
@@ -69,8 +77,13 @@
               (更新済み)
             <% end %>
             <% if current_user.id == article.user_id %>
-                <%= link_to "更新", edit_incident_article_path(@incident, article) %> 
-                <%= link_to "削除", incident_article_path(@incident, article), method: :delete, data: { confirm: "削除しますか?" } %>
+              <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <span><i class="fas fa-ellipsis-h"></i></span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><%= link_to "更新", edit_incident_article_path(@incident, article), class: "dropdown-item" %></li>
+                <li><%= link_to "削除", incident_article_path(@incident, article), method: :delete, data: { confirm: "削除しますか?" }, class: "dropdown-item" %></li>
+              </ul>
             <% end %>
           </div>
         </div>
@@ -80,14 +93,4 @@
       </div>
     <% end %>
   </div>
-</div>
-<div class="dropdown">
-  <a class="dropdown-toggle"type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-    <span><i class="fas fa-ellipsis-h"></i></span>
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
 </div>
