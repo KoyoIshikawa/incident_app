@@ -8,6 +8,7 @@
           </div>
           <div class="article-new-btn">
             <%= form.submit "発行", data: {confirm: "記事を作成しますか？"}, class: "btn btn-primary"%>
+            <%= link_to "戻る", :back, data: {confirm: "保存しないで戻ります。よろしいですか？"}, class: "btn btn-secondary" %>
           </div> 
         </div>
     <% end %>
