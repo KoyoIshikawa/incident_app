@@ -2,7 +2,10 @@
   <h2 class="show-title col">No.<%= sprintf("%008d", @incident.id) %></h2>
   <div class="update-button col ">
     <% if current_user.id == @incident.user_id %>
-      <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+      <%= link_to "更新", edit_incident_path, class: "btn btn-primary btn-768px"%>
+      <%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary btn-768px" %>
+      <%= link_to "戻る", :back, class: "btn btn-primary btn-768px" %>
+      <a class="btn btn-primary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" >
         <span><i class="fas fa-ellipsis-h"></i></span>
       </a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -11,9 +14,6 @@
         <li><%= link_to "戻る", :back, class: "dropdown-item" %></li>
       </ul>
     <% end %>
-      <%= link_to "更新", edit_incident_path, class: "btn btn-primary"%>
-      <%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary" %>
-      <%= link_to "戻る", :back, class: "btn btn-primary" %>
   </div>
 </div>
 <div class="contents bg-light row border-bottom">

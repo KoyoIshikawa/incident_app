@@ -121,6 +121,10 @@ header{
 .show-label{
   text-align: center;
 }
+// show 
+#dropdownMenuButton{
+  display: none;
+}
 .articles{
   .articels-form-group {
     padding: 24px 32px;
@@ -169,6 +173,16 @@ header{
 // listクラス
 // 768pxまではテーブル表示中止
 @media (max-width: 768px) {
+  #dropdownMenuButton {
+    display: inline;
+  }
+  .title{
+    .update-button{
+      .btn-768px {
+        display: none;
+      }
+    }
+  }
   table {
     border: 0px;
   }
@@ -205,7 +219,9 @@ header{
     font-size: 15px;
   }
 
-  // show articles
+  
+  
+  //articles
   .articles {
     .articels-form-group {
       padding: 12px 0px;
