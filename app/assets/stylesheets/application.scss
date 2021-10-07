@@ -122,7 +122,7 @@ header{
   text-align: center;
 }
 // show 
-#dropdownMenuButton{
+.dropdownMenuButton {
   display: none;
 }
 .articles{
@@ -173,16 +173,8 @@ header{
 // listクラス
 // 768pxまではテーブル表示中止
 @media (max-width: 768px) {
-  #dropdownMenuButton {
-    display: inline;
-  }
-  .title{
-    .update-button{
-      .btn-768px {
-        display: none;
-      }
-    }
-  }
+  
+  //index
   table {
     border: 0px;
   }
@@ -214,11 +206,19 @@ header{
   table .incident{
     text-align: left;
   }
+  
   // search_form
   .col-form-label {
     font-size: 15px;
   }
-
+  
+  //show
+  .dropdownMenuButton {
+    display: inline;
+  }
+  .btn-768px {
+    display: none;
+  }
   
   
   //articles
@@ -226,7 +226,7 @@ header{
     .articels-form-group {
       padding: 12px 0px;
       width: 100%;
-
+      
       .article-form {
         padding: 15px;
 
