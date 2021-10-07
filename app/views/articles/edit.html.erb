@@ -1,4 +1,16 @@
-<%= form_with model: [@incident, @article], local: true do |form| %>
-  <%= form.text_field :content %>
-  <%= form.submit %>
-<% end %>
+<div class="articles bg-light">
+  <div class="articels-form-group border-bottom">
+    <%= form_with model: [@incident, @article], local: true do |form| %>
+    <h4 class="account-name"><%= current_user.username %>  更新する </h4>
+        <div class="article-form border">
+          <div>
+            <%= form.text_area :content, class: "form-control" %>    
+          </div>
+          <div class="article-new-btn">
+            <%= form.submit "発行", data: {confirm: "記事を作成しますか？"}, class: "btn btn-primary"%>
+            <%= link_to "戻る", :back, data: {confirm: "保存しないで戻ります。よろしいですか？"}, class: "btn btn-secondary" %>
+          </div> 
+        </div>
+    <% end %>
+  </div>
+</div>

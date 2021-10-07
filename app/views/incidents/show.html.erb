@@ -2,10 +2,16 @@
   <h2 class="show-title col">No.<%= sprintf("%008d", @incident.id) %></h2>
   <div class="update-button col ">
     <% if current_user.id == @incident.user_id %>
-        <%= link_to "更新", edit_incident_path, class: "btn btn-primary"%>
-        <%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary" %>
+      <%= link_to "更新", edit_incident_path, class: "btn btn-primary btn-768px"%>
+      <%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary btn-768px" %>
+      <a class="btn btn-primary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" >
+        <span><i class="fas fa-ellipsis-h"></i></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><%= link_to "更新", edit_incident_path, class: "dropdown-item"%></li>
+        <li><%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" }, class: "dropdown-item" %></li>
+      </ul>
     <% end %>
-    <%= link_to "戻る", :back, class: "btn btn-primary" %>
   </div>
 </div>
 <div class="contents bg-light row border-bottom">
@@ -43,8 +49,8 @@
   </div>
 </div>
 <div class="articles bg-light">
-  <div class="articels-form-group">
-    <h4 class="account-name">アカウント名</h4>
+  <div class="articels-form-group border-bottom">
+    <h4 class="account-name"><%= current_user.username %>  投稿する </h4>
     <div class="article-form border">
       <%= form_with model: [@incident, @article] do |form| %>
         <div>
@@ -58,24 +64,29 @@
   </div>
   <div class="articles-contents">
     <% @articles.each_with_index do |article| %>
-      <div class="articles-contents-top row">
-        <div class="col">
-          <%= article.user.email %>
+      <div class="content border-bottom">
+        <div class="top row">
+          <div class="col article-username">
+            ユーザ：<%= article.user.username %>
+          </div>
+          <div class="col update-info">
+            <%= l article.created_at, format: :long %>  
+            <% if article.created_at < article.updated_at %>
+              (更新済み)
+            <% end %>
+            <% if current_user.id == article.user_id %>
+              <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <span><i class="fas fa-ellipsis-h"></i></span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><%= link_to "更新", edit_incident_article_path(@incident, article), class: "dropdown-item" %></li>
+                <li><%= link_to "削除", incident_article_path(@incident, article), method: :delete, data: { confirm: "削除しますか?" }, class: "dropdown-item" %></li>
+              </ul>
+            <% end %>
+          </div>
         </div>
-        <div class="update-button col">
-          作成日時：<%= l article.created_at, format: :long %>
-          <% if article.created_at < article.updated_at %>
-            更新済み
-          <% end %>
-          <% if current_user.id == article.user_id %>
-              <%= link_to "更新", edit_incident_article_path(@incident, article), class: "btn btn-primary"%> 
-              <%= link_to "削除", incident_article_path(@incident, article), method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary"%>
-          <% end %>
-        </div>
-      </div>
-      <div class="articles-contents-bottom">
-        <div class="show-article ">
-            <%= safe_join(article.content.split("\n"), tag(:br)) %>
+        <div class="bottom row">
+          <p class="col"><%= safe_join(article.content.split("\n"), tag(:br)) %></p>
         </div>
       </div>
     <% end %>

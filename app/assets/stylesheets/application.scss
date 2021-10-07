@@ -1,5 +1,8 @@
 @import "bootstrap/scss/bootstrap";
 
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/regular";
 /* 全体 */
 /* main */
 main {
@@ -7,13 +10,14 @@ main {
 }
 
 .base-container {
-  margin: 0px auto;
-  padding: 56px 5px 0px 5px;
+  margin: 56px auto;
+  padding: 10px 5px 0px 5px;
 }
 
 /* max-width */
 .mw-sm {
   max-width: 540px;
+  padding-top: 54px;
 }
 
 .mw-md {
@@ -117,15 +121,44 @@ header{
 .show-label{
   text-align: center;
 }
+// show 
+#dropdownMenuButton{
+  display: none;
+}
 .articles{
-  padding-top: 20px;
-  .article-form{
-    padding: 10px;
-  }
   .articels-form-group {
-    margin: 0px 15px 20px 15px;
+    padding: 24px 32px;
+    width: 100%;
+    .article-form {
+      padding: 10px;
+      .form-control{
+        height: 110px;
+      }
+    }
   }
-  .article-new-btn,.update-button {
+  
+  .articles-contents {
+    .content{
+      padding: 24px 32px;
+      width: 100%;
+      font-size: 14px;
+      .top{
+        margin: 5px;
+      }
+      .top{
+        height: 30px;
+        .update-info{
+          text-align: right;
+        }
+      }
+      .bottom{
+        margin-bottom: 24px;
+        margin: 5px;
+      }
+    }
+  }
+  
+  .article-new-btn {
     text-align: right;
     margin-top: 10px;
   }
@@ -140,6 +173,16 @@ header{
 // listクラス
 // 768pxまではテーブル表示中止
 @media (max-width: 768px) {
+  #dropdownMenuButton {
+    display: inline;
+  }
+  .title{
+    .update-button{
+      .btn-768px {
+        display: none;
+      }
+    }
+  }
   table {
     border: 0px;
   }
@@ -174,6 +217,54 @@ header{
   // search_form
   .col-form-label {
     font-size: 15px;
+  }
+
+  
+  
+  //articles
+  .articles {
+    .articels-form-group {
+      padding: 12px 0px;
+      width: 100%;
+
+      .article-form {
+        padding: 15px;
+
+        .form-control {
+          height: 110px;
+        }
+      }
+    }
+
+    .articles-contents {
+      .content {
+        padding: 12px 0px;
+        width: 100%;
+        font-size: 14px;
+
+        .top{
+          margin: 5px;
+        }
+
+        .top {
+          height: 30px;
+
+          .update-info {
+            text-align: right;
+            margin: 5px;
+          }
+        }
+
+        .bottom {
+          margin-bottom: 24px;
+        }
+      }
+    }
+
+    .article-new-btn {
+      text-align: right;
+      margin-top: 10px;
+    }
   }
 }
 
