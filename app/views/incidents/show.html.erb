@@ -4,7 +4,7 @@
     <% if current_user.id == @incident.user_id %>
       <%= link_to "更新", edit_incident_path, class: "btn btn-primary btn-768px"%>
       <%= link_to "削除", @incident, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary btn-768px" %>
-      <a class="btn btn-primary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" >
+      <a class="btn btn-primary dropdownMenuButton" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" >
         <span><i class="fas fa-ellipsis-h"></i></span>
       </a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -66,19 +66,21 @@
     <% @articles.each_with_index do |article| %>
       <div class="content border-bottom">
         <div class="top row">
-          <div class="col article-username">
+          <div class="col-sm article-username">
             ユーザ：<%= article.user.username %>
           </div>
-          <div class="col update-info">
+          <div class="col-sm update-info">
             <%= l article.created_at, format: :long %>  
             <% if article.created_at < article.updated_at %>
               (更新済み)
             <% end %>
             <% if current_user.id == article.user_id %>
-              <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= link_to "更新", edit_incident_article_path(@incident, article), class: "btn-768px" %>
+              <%= link_to "削除", incident_article_path(@incident, article), method: :delete, data: { confirm: "削除しますか?" }, class: "btn-768px" %>
+              <a class="dropdownMenuButton" type="button" id="dropdownArticleMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <span><i class="fas fa-ellipsis-h"></i></span>
               </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <ul class="dropdown-menu" aria-labelledby="dropdownArticleMenuButton">
                 <li><%= link_to "更新", edit_incident_article_path(@incident, article), class: "dropdown-item" %></li>
                 <li><%= link_to "削除", incident_article_path(@incident, article), method: :delete, data: { confirm: "削除しますか?" }, class: "dropdown-item" %></li>
               </ul>
