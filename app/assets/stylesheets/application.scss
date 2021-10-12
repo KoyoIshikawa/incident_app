@@ -143,14 +143,13 @@ header{
       width: 100%;
       font-size: 14px;
       .top{
-        margin: 5px;
-        height: 30px;
         .update-info{
           text-align: right;
         }
       }
-      .bottom{
+      .row{
         margin: 5px;
+        height: auto;
       }
     }
   }
