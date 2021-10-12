@@ -243,9 +243,15 @@ header{
   }
 }
 @media (max-width: 576px) {
-  .articles-contents {
-    .update-info{
-      text-align: left;
+  .articles {
+    .articles-contents {
+      .content {
+        .top {
+          .update-info {
+            text-align: left;
+          }
+        }
+      }
     }
   }
 }  
