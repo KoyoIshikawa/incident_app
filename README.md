@@ -97,9 +97,16 @@
 
 - usersテーブル（ユーザーを情報管理するテーブル）
 
-[無題](https://www.notion.so/014fbf1862f8443d917f2750d7222b9b)
+| カラム名 |データ型  | 備考 |
+|:--|:--|:--|
+|id|	integer|PK|
+|name|string||
+|email|string||
+|password|string||
+
 
 - incidentsテーブル（インシデント内容を管理するテーブル）
+- 
 
 [無題](https://www.notion.so/e81a8db6da114d2693ed72f3fbc43e21)
 
