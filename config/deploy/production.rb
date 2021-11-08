@@ -1,4 +1,4 @@
-server "54.64.229.69", user: "koyoIshikawa", roles: %w{app db web}
+server "54.64.229.69", user: "KoyoIshikawa", roles: %w{app db web}
 
 set :ssh_options, {
   keys: %w(~/.ssh/aws_incident_app.pem),
