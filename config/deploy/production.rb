@@ -1,3 +1,11 @@
+server "54.64.229.69", user: "koyoIshikawa", roles: %w{app db web}
+
+set :ssh_options, {
+  keys: %w(~/.ssh/aws_incident_app.pem),
+  forward_agent: true,
+  auth_methods: %w(publickey),
+}
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
