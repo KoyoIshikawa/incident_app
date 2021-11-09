@@ -118,15 +118,15 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: ENV["HOST_NAME"] }
+  config.action_mailer.default_url_options = { host: Rails.application.credentials.mail[:host_name] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
     :address => "smtp.gmail.com",
     :port => 587,
     :domain => 'smtp.gmail.com',
-    :user_name => ENV["GOOGLE_MAIL_ADDRESS"],
-    :password => ENV["GOOGLE_MAILER_PASSWORD"],
+    :user_name => Rails.application.credentials.mail[:google_mail_address],
+    :password => Rails.application.credentials.mail[:google_mailer_password],
     :authentication => 'login'
   }
 end
