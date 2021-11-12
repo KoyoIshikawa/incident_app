@@ -77,7 +77,26 @@
 
 ## 使用イメージ
 
-イメージを gif を作る
+### ソート機能
+
+
+![ソート機能.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f52cd80e-2001-488a-9b24-b36e03eadf6f/ソート機能.gif)
+
+### 検索機能（事象入力）
+
+![検索機能.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6e1fc37b-62b6-4584-92e8-c65dda294cea/検索機能.gif)
+
+### 検索機能（プルダウンメニュー）
+
+![検索機能（プルダウンメニューから）.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0fca6162-31f9-4f7b-a449-c747b567e356/検索機能（プルダウンメニューから）.gif)
+
+## インシデント発行機能
+
+![新規投稿機能.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a7fd2a8-a89a-4487-821e-bba9cc8de92d/新規投稿機能.gif)
+
+### 記事投稿機能
+
+![記事投稿機能.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b57f2c73-20af-49e1-b31b-a6f1fd7d3eaa/記事投稿機能.gif)
 
 ## テーブル設計
 
@@ -91,48 +110,49 @@
 | password | string   |      |
 
 - incidents テーブル（インシデント内容を管理するテーブル）
-  | カラム名 |データ型 |備考 |
-  |:--|:--|:--|
-  |id| integer| PK|
-  |user_id| integer |FK|
-  |coding_lang_id| integer |FK|
-  |os_name_id |integer |FK|
-  |status_id |integer| FK|
-  |incident| text||
-  |solution| text||
-  |created_at|datetime| 自動生成|
-  |updated_at|datetime| 自動生成|
+| カラム名 |データ型 |備考 |
+|:--|:--|:--|
+|id| integer| PK|
+|user_id| integer |FK|
+|coding_lang_id| integer |FK|
+|os_name_id |integer |FK|
+|status_id |integer| FK|
+|incident| text||
+|solution| text||
+|created_at|datetime| 自動生成|
+|updated_at|datetime| 自動生成|
 
 - coding_langs テーブル（プログラミング言語を管理するテーブル）
-  | カラム名 |データ型 |備考 |
-  |:--|:--|:--|
-  |id| integer| PK|
-  |name |string ||
+| カラム名 |データ型 |備考 |
+|:--|:--|:--|
+|id| integer| PK|
+|name |string ||
+
 - statuses テーブル（ステータスを管理するテーブル）
-  | カラム名 |データ型 |備考 |
-  |:--|:--|:--|
-  |id| integer| PK|
-  |status |string|
+| カラム名 |データ型 |備考 |
+|:--|:--|:--|
+|id| integer| PK|
+|status |string|
 
 - os_name テーブル（OS を管理するテーブル）
-  | カラム名 |データ型 |備考 |
-  |:--|:--|:--|
-  |id |integer| PK|
-  |name |string |
+| カラム名 |データ型 |備考 |
+|:--|:--|:--|
+|id |integer| PK|
+|name |string |
 
 - articles テーブル（コメントを管理するテーブル）
-  | カラム名 |データ型 |備考 |
-  |:--|:--|:--|
-  |id| integer| PK|
-  |user_id| integer| FK|
-  |incident_id |integer |FK|
-  |created_at| datetime||
-  |updated_at| datetime||
-  |content| text||
+| カラム名 |データ型 |備考 |
+|:--|:--|:--|
+|id| integer| PK|
+|user_id| integer| FK|
+|incident_id |integer |FK|
+|created_at| datetime||
+|updated_at| datetime||
+|content| text||
 
 ## ER 図
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/254d4bc7-d951-44f7-aaba-2d11d44ce405/Untitled.png)
+
 
 ## インフラ構成図
 
