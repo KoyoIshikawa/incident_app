@@ -44,12 +44,6 @@
 
 本アプリにて上記事項の解消ができるよう作成いたしました。
 
-## 特に見てほしい点
-
-同一スクール受講生に使ってもらい、見直しを実施した。
-ここに感想を挿入予定
-単体テスト、複合テストを実施した。
-
 ## 開発で苦労したこと
 
 - データベースを利用したダミーデータの挿入がなかなかうまく行かなかった
@@ -79,11 +73,12 @@
 ## 使用イメージ
 
 ### ソート機能
+
 ![ソート機能](https://user-images.githubusercontent.com/58265802/141595191-cd801f34-ad03-4000-94d1-03d8e2e9f935.gif)
 
 ### 検索機能（事象入力）
-![検索機能](https://user-images.githubusercontent.com/58265802/141595215-30943f54-a470-423d-b1d9-10217a62d445.gif)
 
+![検索機能](https://user-images.githubusercontent.com/58265802/141595215-30943f54-a470-423d-b1d9-10217a62d445.gif)
 
 
 ### 検索機能（プルダウンメニュー）
@@ -92,8 +87,8 @@
 
 
 ## インシデント発行機能
-![新規投稿機能](https://user-images.githubusercontent.com/58265802/141595261-9a09135a-4b2f-4cec-8e42-ab2716372d2e.gif)
 
+![新規投稿機能](https://user-images.githubusercontent.com/58265802/141595261-9a09135a-4b2f-4cec-8e42-ab2716372d2e.gif)
 
 ### 記事投稿機能
 ![記事投稿機能](https://user-images.githubusercontent.com/58265802/141595263-974849a3-1302-4b3a-8b61-69a71712ed60.gif)
