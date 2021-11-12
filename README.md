@@ -79,7 +79,6 @@
 
 ### ソート機能
 
-
 ![ソート機能.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f52cd80e-2001-488a-9b24-b36e03eadf6f/ソート機能.gif)
 
 ### 検索機能（事象入力）
@@ -101,7 +100,7 @@
 ## テーブル設計
 
 - users テーブル（ユーザーを情報管理するテーブル）
-
+- 
 | カラム名 | データ型 | 備考 |
 | :------- | :------- | :--- |
 | id       | integer  | PK   |
@@ -110,6 +109,7 @@
 | password | string   |      |
 
 - incidents テーブル（インシデント内容を管理するテーブル）
+
 | カラム名 |データ型 |備考 |
 |:--|:--|:--|
 |id| integer| PK|
@@ -123,24 +123,28 @@
 |updated_at|datetime| 自動生成|
 
 - coding_langs テーブル（プログラミング言語を管理するテーブル）
+
 | カラム名 |データ型 |備考 |
 |:--|:--|:--|
 |id| integer| PK|
 |name |string ||
 
 - statuses テーブル（ステータスを管理するテーブル）
+
 | カラム名 |データ型 |備考 |
 |:--|:--|:--|
 |id| integer| PK|
 |status |string|
 
 - os_name テーブル（OS を管理するテーブル）
+
 | カラム名 |データ型 |備考 |
 |:--|:--|:--|
 |id |integer| PK|
 |name |string |
 
 - articles テーブル（コメントを管理するテーブル）
+
 | カラム名 |データ型 |備考 |
 |:--|:--|:--|
 |id| integer| PK|
@@ -152,7 +156,7 @@
 
 ## ER 図
 
-
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/254d4bc7-d951-44f7-aaba-2d11d44ce405/Untitled.png)
 
 ## インフラ構成図
 
