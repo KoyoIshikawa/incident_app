@@ -18,6 +18,7 @@
      フォーマットに従い事象を記載することで質問が具体的になる
      過去事象を探すことで、インシデント解決につながる
 2. 個人利用
+
    - 過去事象を探すことで、インシデント解決につながる
    - 自身が以前遭遇したインシデントを記録しておくことで、次回発生時解決が迅速化する
 
@@ -78,29 +79,29 @@
 ## 使用イメージ
 
 ### ソート機能
-
-![ソート機能.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f52cd80e-2001-488a-9b24-b36e03eadf6f/ソート機能.gif)
+![ソート機能](https://user-images.githubusercontent.com/58265802/141595191-cd801f34-ad03-4000-94d1-03d8e2e9f935.gif)
 
 ### 検索機能（事象入力）
+![検索機能](https://user-images.githubusercontent.com/58265802/141595215-30943f54-a470-423d-b1d9-10217a62d445.gif)
 
-![検索機能.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6e1fc37b-62b6-4584-92e8-c65dda294cea/検索機能.gif)
+
 
 ### 検索機能（プルダウンメニュー）
 
-![検索機能（プルダウンメニューから）.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0fca6162-31f9-4f7b-a449-c747b567e356/検索機能（プルダウンメニューから）.gif)
+![検索機能（プルダウンメニューから）](https://user-images.githubusercontent.com/58265802/141595244-6aaf7b71-ec3b-4675-8e8a-a7bb86826989.gif)
+
 
 ## インシデント発行機能
+![新規投稿機能](https://user-images.githubusercontent.com/58265802/141595261-9a09135a-4b2f-4cec-8e42-ab2716372d2e.gif)
 
-![新規投稿機能.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a7fd2a8-a89a-4487-821e-bba9cc8de92d/新規投稿機能.gif)
 
 ### 記事投稿機能
-
-![記事投稿機能.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b57f2c73-20af-49e1-b31b-a6f1fd7d3eaa/記事投稿機能.gif)
+![記事投稿機能](https://user-images.githubusercontent.com/58265802/141595263-974849a3-1302-4b3a-8b61-69a71712ed60.gif)
 
 ## テーブル設計
 
 - users テーブル（ユーザーを情報管理するテーブル）
-- 
+
 | カラム名 | データ型 | 備考 |
 | :------- | :------- | :--- |
 | id       | integer  | PK   |
@@ -156,11 +157,8 @@
 
 ## ER 図
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/254d4bc7-d951-44f7-aaba-2d11d44ce405/Untitled.png)
+<img width="531" alt="スクリーンショット 2021-11-13 8 54 09" src="https://user-images.githubusercontent.com/58265802/141596597-34562433-f1f1-43bc-acdd-b5b786469d09.png">
 
-## インフラ構成図
-
-heroku のため現在未記載
 
 ## 今後追加予定機能
 
@@ -178,3 +176,4 @@ heroku のため現在未記載
 DB：PostgreSQL
 インフラ：AWS
 ソースコード管理：GitHub(issue で、タスク管理する)
+
