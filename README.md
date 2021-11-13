@@ -85,7 +85,7 @@
 ![検索機能（プルダウンメニューから）](https://user-images.githubusercontent.com/58265802/141595244-6aaf7b71-ec3b-4675-8e8a-a7bb86826989.gif)
 
 
-## インシデント発行機能
+### インシデント発行機能
 
 ![新規投稿機能](https://user-images.githubusercontent.com/58265802/141595261-9a09135a-4b2f-4cec-8e42-ab2716372d2e.gif)
 
