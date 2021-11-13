@@ -164,10 +164,10 @@
 
 ## 開発環境
 
-言語：Ruby (2.7.2)
-フレームワーク：Ruby on Rails (6.1.3.2)
-フロントエンド：HTML&CSS/Bootstrap/JavaScript/jQuey
-DB：PostgreSQL
-インフラ：AWS
-ソースコード管理：GitHub(issue で、タスク管理する)
+- 言語：Ruby (2.7.2)
+- フレームワーク：Ruby on Rails (6.1.3.2)
+- フロントエンド：HTML&CSS/Bootstrap/JavaScript/jQuey
+- DB：PostgreSQL
+- インフラ：AWS
+- ソースコード管理：GitHub(issue で、タスク管理する)
 
