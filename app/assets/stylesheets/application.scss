@@ -5,7 +5,7 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import "@fortawesome/fontawesome-free/scss/regular";
 
 @import "./modules/header", "./modules/flash", "./modules/form";
-@import "./controller/show";
+@import "./controller/show", "./controller/index";
 
 /* 全体 */
 /* main */
@@ -50,70 +50,5 @@ main {
   text-align: center;
 }
 
-// search_form
-  .col-form-label {
-    font-size: large;
-  }
 
-// listクラス
-// 768pxまではテーブル表示中止
-@media (max-width: 768px) {
-    
-    //index
-    table {
-      border: 0px;
-    }
-    table thead {
-      display: none;
-    }
-    table tr {
-      margin: 7px ;
-      display: block;
-      border: 2px solid #ddd;
-    }
-    table th,
-    table td {
-      width: 100%;
-      display: block;
-      text-align: right;
-    }
-    table td:before,th::before{
-      content: attr(data-label);
-      float: left;
-      font-weight: bold;
-    }
-    table .incident::before {
-      text-align: left;
-      font-weight: bold;
-      display: block;
-      width: 100%;
-    }
-    table .incident{
-      text-align: left;
-    }
-  
-  // search_form
-  .col-form-label {
-    font-size: 15px;
-  }
-}
-
-
-table{
-  .w-status,
-  .w-coding-lang,
-  .w-OS{
-    width: 75px;
-  }
-  .w-username {
-    width: 100px;
-  }
-  .w-created-at
-  {
-    width: 15%;
-  }
-  .w-No {
-    width: 10%;
-  }
-}
 
