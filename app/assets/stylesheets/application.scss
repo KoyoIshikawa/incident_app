@@ -3,6 +3,9 @@
 $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import "@fortawesome/fontawesome-free/scss/fontawesome";
 @import "@fortawesome/fontawesome-free/scss/regular";
+
+@import "./modules/header";
+
 /* 全体 */
 /* main */
 main {
@@ -30,30 +33,6 @@ main {
 
 .mw-xl {
   max-width: 1200px;
-}
-
-/* header */
-header a{
-  color:inherit;
-  text-decoration:none;
-}
-header{
-  color: white;
-  z-index: 1030;
-}
-.base-bg-color{
-  background-color: #007bff ;
-}
-.header-nav{
-  display: inline-block;
-  text-align: center;
-}
-
-.navbar{
-  margin: 0 auto
-}
-.nav-item{
-  padding: 8px;
 }
 
 /* main flash*/
