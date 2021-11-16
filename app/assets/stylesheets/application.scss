@@ -5,6 +5,7 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import "@fortawesome/fontawesome-free/scss/regular";
 
 @import "./modules/header", "./modules/flash", "./modules/form";
+@import "./controller/show";
 
 /* 全体 */
 /* main */
@@ -49,69 +50,6 @@ main {
   text-align: center;
 }
 
-// show
-  .field_with_errors {
-    display: contents;
-    label {
-      color: red;
-      font: bold;
-    }
-  }
-  .title{
-    .update-button {
-      text-align: right;
-    }
-  }
-  .title,.contents,.articles{
-    margin: 0px 0px 5px 0px;
-  }
-  .title{
-    h2{
-      margin-bottom: 0px;
-    }
-  }
-  .show-label{
-    text-align: center;
-  }
-  .dropdownMenuButton {
-    display: none;
-  }
-  .articles{
-    .articels-form-group {
-      padding: 24px 32px;
-      width: 100%;
-      .article-form {
-        padding: 10px;
-        .form-control{
-          height: 110px;
-        }
-      }
-    }
-    
-    .articles-contents {
-      .content{
-        padding: 24px 32px;
-        width: 100%;
-        font-size: 14px;
-        .top{
-          .update-info{
-            text-align: right;
-          }
-        }
-        .row{
-          margin: 5px;
-          height: auto;
-        }
-      }
-    }
-    
-    .article-new-btn {
-      text-align: right;
-      margin-top: 10px;
-    }
-  }
-
-
 // search_form
   .col-form-label {
     font-size: large;
@@ -119,7 +57,7 @@ main {
 
 // listクラス
 // 768pxまではテーブル表示中止
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     
     //index
     table {
@@ -154,57 +92,13 @@ main {
       text-align: left;
     }
   
-// search_form
+  // search_form
   .col-form-label {
     font-size: 15px;
   }
-  
-  //show
-  .dropdownMenuButton {
-    display: inline;
-  }
-  .btn-768px {
-    display: none;
-  }
-  
-  
-  //articles
-  .articles {
-    .articels-form-group {
-      padding: 12px 0px;
-      width: 100%;
-      
-      .article-form {
-        padding: 15px;
-
-        .form-control {
-          height: 110px;
-        }
-      }
-    }
-
-    .articles-contents {
-      .content {
-        padding: 12px 0px;
-        width: 100%;
-        font-size: 14px;
-      }
-    }
-  }
 }
-@media (max-width: 576px) {
-  .articles {
-    .articles-contents {
-      .content {
-        .top {
-          .update-info {
-            text-align: left;
-          }
-        }
-      }
-    }
-  }
-}  
+
+
 table{
   .w-status,
   .w-coding-lang,
