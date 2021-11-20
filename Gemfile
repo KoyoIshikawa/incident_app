@@ -38,10 +38,7 @@ gem "devise-bootstrap-views", "~> 1.0"
 # config / locales / ja.yml生成
 gem "i18n_generators"
 
-# ダミーデータ投入用
-gem "faker", require: false
-
-# 検索機能
+# 検索機能
 gem "ransack"
 
 # ページネーション
@@ -53,8 +50,16 @@ gem "activeadmin"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "pry-byebug"
   gem "dotenv-rails"
+    # Rails用のテストフレームワーク
+  gem 'rspec-rails'
+  # モデルに関するテストデータ作成用
+  gem 'factory_bot_rails'
+  # ダミーデータの生成
+  gem 'faker'
+  # デバッグ用
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 group :development do
