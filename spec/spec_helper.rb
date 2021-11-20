@@ -93,6 +93,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  #テストが途中で失敗しても終了せず、最後までテストを実行して失敗したテストをリストアップする設定
   config.define_derived_metadata do |meta|
     meta[:aggregate_failures] = true unless meta.key?(:aggregate_failures)
   end
