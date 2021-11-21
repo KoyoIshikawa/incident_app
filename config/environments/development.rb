@@ -82,4 +82,7 @@ Rails.application.configure do
     :password => ENV["GOOGLE_MAILER_PASSWORD"],
     :authentication => 'login'
   }
+
+  #factory_bot_rails参照パスの指定
+  config.factory_bot.definition_file_paths = ["spec/factories"]
 end
