@@ -8,7 +8,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable,
          :authentication_keys => [:username]
-  validates :username, uniqueness: true
+  validates :username, uniqueness: true, presence: true
   validates :email,
             presence: true,
             uniqueness: true,
