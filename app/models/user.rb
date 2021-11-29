@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
 
   has_many :incidents, dependent: :destroy
   has_many :articles, dependent: :destroy
@@ -13,7 +12,6 @@ class User < ApplicationRecord
             presence: true,
             uniqueness: true,
             length: { maximum: 255 },
-            format: { with: VALID_EMAIL_REGEX }
 
   def self.guest
     find_or_create_by!(email: "guest@example.com") do |user|
