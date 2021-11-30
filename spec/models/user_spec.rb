@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
       end
     end
     context "emailが空白のとき" do
-      let(:user) { build(:user, email: "")}
+      let(:user) { build(:user, email: "") }
       it "エラーが発生する" do
         expect(subject).to eq false
         expect(user.errors.messages[:email]).to include "を入力してください"
@@ -39,13 +39,24 @@ RSpec.describe User, type: :model do
       end
     end
     context "emailが256文字以上のとき" do
+      let(:user) { build(:user, email: "a" * 256) }
       it "エラーが発生する" do
-        # テスト
+        expect(subject).to eq false
+        expect(user.errors.messages[:email]).to include "は255文字以内で入力してください"
       end
     end
     context "アルファベットと英数字飲みのとき" do
+      let(:user) { build(:user, email: Faker::Lorem.characters(number: 16)) }
       it "エラーが発生する" do
-        # テスト
+        expect(subject).to eq false
+        expect(user.errors.messages[:email]).to include "は不正な値です"
+      end
+    end
+    context "全角文字でアドレスが設定されているとき" do
+      let(:user) { build(:user, email: "ＡＬ@あいうえお") }
+      it "エラーが発生する" do
+        expect(subject).to eq false
+        expect(user.errors.messages[:email]).to include "は不正な値です"
       end
     end
   end
