@@ -24,13 +24,17 @@ RSpec.describe User, type: :model do
       end
     end
     context "emailが空白のとき" do
+      let(:user) { build(:user, email: "")}
       it "エラーが発生する" do
-        # テスト
+        expect(subject).to eq false
+        expect(user.errors.messages[:email]).to include "を入力してください"
       end
     end
     context "emailがすでに存在するとき" do
+      let(:user) { build(:user, email: "test@example.com")}
       it "エラーが発生する" do
-        # テスト
+        expect(subject).to eq false
+        expect(user.errors.messages[:email]).to include "を入力してください"
       end
     end
     context "emailが256文字以上のとき" do
