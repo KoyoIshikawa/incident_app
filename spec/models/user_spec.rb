@@ -31,10 +31,11 @@ RSpec.describe User, type: :model do
       end
     end
     context "emailがすでに存在するとき" do
+      before { create(:user, email: "test@example.com") }
       let(:user) { build(:user, email: "test@example.com")}
       it "エラーが発生する" do
         expect(subject).to eq false
-        expect(user.errors.messages[:email]).to include "を入力してください"
+        expect(user.errors.messages[:email]).to include "はすでに存在します"
       end
     end
     context "emailが256文字以上のとき" do
