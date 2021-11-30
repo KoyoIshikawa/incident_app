@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
     context "usernameが31文字以上のとき" do
       let(:user) { build(:user, username: "a" * 31)}
       it "エラーが発生する" do
-        expect(subject).to eq true
+        expect(subject).to eq false
         expect(user.errors.messages[:username]).to include "は30文字以内で入力してください"
       end
     end
