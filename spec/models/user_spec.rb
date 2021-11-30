@@ -4,15 +4,15 @@ RSpec.describe User, type: :model do
   describe "バリデーション" do
     subject { user.valid? }
     context "データが条件を満たすとき" do
+      let(:user) { build(:user) }
       it "保存できる" do
-        user = build(:user)
         expect(subject).to eq true
       end
     end
     context "usernameが空白のとき" do
+      let(:user) { build(:user, username: "") }
       it "エラーが発生する" do
-        user = build(:user, username: "")
-        expect(user.valid?).to eq false
+        expect(subject).to eq false
         expect(user.errors.messages[:username]).to include "を入力してください"
       end
     end
