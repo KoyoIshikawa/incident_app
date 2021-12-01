@@ -68,16 +68,16 @@ RSpec.describe User, type: :model do
       end
     end
   end
+  #エラーが出ているが、原因はfactory_bot_railsで各種データベースインスタンスを作る設定がないため
   context "ユーザーが削除されたとき" do
     subject { user.destroy }
     let(:user) { create(:user) }
     before do
-      binding.pry
       create_list(:incident, 2, user: user)
       create(:incident)
     end
     it "そのユーザーのメッセージも削除される" do
-      expect { subject }.to change { user.incident.count }.by(-2)
+      expect { subject }.to change { user.incidents.count }.by(-2)
     end
   end
 end
