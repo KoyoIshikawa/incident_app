@@ -16,6 +16,14 @@ RSpec.describe User, type: :model do
         expect(user.errors.messages[:username]).to include "を入力してください"
       end
     end
+    context "usernameがすでに存在するとき" do
+      before { create(:user, username: "testuser") }
+      let(:user) { build(:user, username: "testuser") }
+      it "エラーが発生する" do
+        expect(subject).to eq false
+        expect(user.errors.messages[:username]).to include "はすでに存在します"
+      end
+    end
     context "usernameが31文字以上のとき" do
       let(:user) { build(:user, username: "a" * 31)}
       it "エラーが発生する" do
@@ -60,9 +68,16 @@ RSpec.describe User, type: :model do
       end
     end
   end
-  context "ユーザが削除されたとき" do
-    it "そのユーザのインシデントを削除する" do
-      # テスト
+  context "ユーザーが削除されたとき" do
+    subject { user.destroy }
+    let(:user) { create(:user) }
+    before do
+      binding.pry
+      create_list(:incident, 2, user: user)
+      create(:incident)
+    end
+    it "そのユーザーのメッセージも削除される" do
+      expect { subject }.to change { user.incident.count }.by(-2)
     end
   end
 end

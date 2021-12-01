@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :incident do
-    coding_lang { CodingLang.find(rand(CodingLang.first.id..CodingLang.last.id)) }
+    coding_lang_id { CodingLang.find(rand(CodingLang.first.id..CodingLang.last.id)).id }
     incident { Faker::Lorem.word }
     os_name { OsName.find(rand(OsName.first.id..OsName.last.id)) }
     solution { Faker::Lorem.paragraph }
