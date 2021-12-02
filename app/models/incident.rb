@@ -7,10 +7,10 @@ class Incident < ApplicationRecord
   has_many :articled_users, through: :articles, source: :user
   validates :incident, 
             presence: true,
-            length: { maximum: 20000 }
+            length: { maximum: 200 }
   validates :solution, 
             presence: true,
-            length: { maximum: 200 }
+            length: { maximum: 20000 }
 
   
 end
