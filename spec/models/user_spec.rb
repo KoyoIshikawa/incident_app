@@ -73,7 +73,9 @@ RSpec.describe User, type: :model do
     subject { user.destroy }
     let(:user) { create(:user) }
     before do
+      # ユーザーAに紐づいたインシデントを作成
       create_list(:incident, 2, user: user)
+      # ユーザAに紐づいていないインシデントを作成
       create(:incident)
     end
     it "そのユーザーのメッセージも削除される" do

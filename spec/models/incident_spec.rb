@@ -65,8 +65,10 @@ RSpec.describe Incident, type: :model do
     subject { incident.destroy }
     let(:incident) { create(:incident) }
     before do
+      # インシデントAに紐づいた記事の作成
       create_list(:article, 2, incident: incident)
-      create(:incident)
+      # インシデントA以外に紐づいた記事の作成
+      create(:article)
     end
     it "インシデント内の記事も削除される" do
       expect { subject }.to change { incident.articles.count }.by(-2)
