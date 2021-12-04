@@ -59,18 +59,17 @@ RSpec.describe Incident, type: :model do
         expect(incident.errors.messages[:coding_lang]).to include "を入力してください"
       end
     end
-binding.pry
-
   end
+
   context "インシデントが削除されたとき" do
     subject { incident.destroy }
     let(:incident) { create(:incident) }
     before do
-      create_list(:incident, 2, incident: incident)
+      create_list(:article, 2, incident: incident)
       create(:incident)
     end
     it "インシデント内の記事も削除される" do
-      expect { subject }.to change { incident.incidents.count }.by(-2)
+      expect { subject }.to change { incident.articles.count }.by(-2)
     end
   end
 end
