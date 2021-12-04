@@ -37,40 +37,41 @@ RSpec.describe Incident, type: :model do
         expect(incident.errors.messages[:solution]).to include "は20000文字以内で入力してください"
       end
     end
+    # binding.pry
     context "os_nameが空白のとき" do
-      let(:incident) { build(:incident, os_name: "") }
+      let(:incident) { build(:incident, os_name_id: 0) }
       it "エラーが発生する" do
         expect(subject).to eq false
         expect(incident.errors.messages[:os_name]).to include "を入力してください"
       end
     end
     context "statusが空白のとき" do
-      let(:incident) { build(:incident, status: "") }
+      let(:incident) { build(:incident, status_id: 0) }
       it "エラーが発生する" do
         expect(subject).to eq false
         expect(incident.errors.messages[:status]).to include "を入力してください"
       end
     end
     context "coding_langが空白のとき" do
-      let(:incident) { build(:incident, coding_lang: "") }
+      let(:incident) { build(:incident, coding_lang_id: 0) }
       it "エラーが発生する" do
         expect(subject).to eq false
         expect(incident.errors.messages[:coding_lang]).to include "を入力してください"
       end
     end
-
+binding.pry
 
   end
   context "インシデントが削除されたとき" do
-    # subject { incident.destroy }
-    # let(:incident) { create(:incident) }
-    # before do
-    #   create_list(:incident, 2, incident: incident)
-    #   create(:incident)
-    # end
-    # it "インシデント内の記事も削除される" do
-    #   expect { subject }.to change { incident.incidents.count }.by(-2)
-    # end
+    subject { incident.destroy }
+    let(:incident) { create(:incident) }
+    before do
+      create_list(:incident, 2, incident: incident)
+      create(:incident)
+    end
+    it "インシデント内の記事も削除される" do
+      expect { subject }.to change { incident.incidents.count }.by(-2)
+    end
   end
 end
 
