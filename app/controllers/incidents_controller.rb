@@ -1,5 +1,5 @@
 class IncidentsController < ApplicationController
-  # before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: :index
   before_action :set_incident, only: %i[edit update destroy]
   before_action :set_q, only: [:index, :search]
   PER_PAGE = 20
