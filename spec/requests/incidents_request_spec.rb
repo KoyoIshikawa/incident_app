@@ -33,42 +33,42 @@ RSpec.describe "Incidents", type: :request do
       end
 
       it "インシデントが表示される" do
-        incident = create(:incident)
-        expect(response.body).to include incident.incident
+        subject
+        expect(response.body).to include @incident.incident
       end
 
       it "解決方法がが表示される" do
-        incident = create(:incident)
-        expect(response.body).to include incident.solution
+        subject
+        expect(response.body).to include @incident.solution
       end
       it "ユーザ名が表示される" do 
-        incident = create(:incident)
-        expect(response.body).to include incident.users.username
+        subject
+        expect(response.body).to include @incident.users.username
       end
 
       it "作成日時が表示される"do
-        incident = create(:incident)
-        expect(response.body).to include incident.create_at
+        subject
+        expect(response.body).to include @incident.create_at
       end
 
       it "更新日時が表示される"do
-        incident = create(:incident)
-        expect(response.body).to include incident.update_at
+        subject
+        expect(response.body).to include @incident.update_at
       end
 
       it "ステータスが表示される"do
-        incident = create(:incident)
-        expect(response.body).to include incident.status
+        subject
+        expect(response.body).to include @incident.status
       end
 
       it "OSが表示される"do
-        incident = create(:incident)
-        expect(response.body).to include incident.os_name
+        subject
+        expect(response.body).to include @incident.os_name
       end
 
       it "言語が表示される" do
-        incident = create(:incident)
-        expect(response.body).to include incident.coding_lang
+        subject
+        expect(response.body).to include @incident.coding_lang
       end
 
       context "インシデントに付随する記事が存在するとき" do
