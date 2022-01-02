@@ -9,41 +9,19 @@ RSpec.describe "Incidents", type: :request do
         subject
         expect(response).to have_http_status(:ok)
       end
-
-      it "事象が表示されている" do
+      it "一覧が表示されている" do
         subject
         expect(response.body).to include(*Incident.pluck(:incident))
       end
-      it "状態が表示されている" do
-        subject
-        expect(response.body).to include(*Status.pluck(:status))
-      end
-      it "言語が表示されている" do
-        subject
-        expect(response.body).to include(*CodingLang.pluck(:name))
-      end
-      it "OSが表示されている" do
-        subject
-        expect(response.body).to include(*OsName.pluck(:name))
-      end
-      it "ユーザが表示されている" do
-        subject
-        expect(response.body).to include(*User.pluck(:username))
-      end
-      it "作成日時が表示されている" do
-        subject
-        expect(response.body).to include(*OsName.pluck(:name))
-      end
-      binding.pry
     end
   end
   describe "GET #show" do
     before do
       @user = create(:user)
       @incident = create(:incident, user: @user)
-      @article = create(:article, incident: @incident, user: @user)
+      @articles = create_list(:article, 3, incident: @incident, user: @user)
     end
-    subject { get(incident_path(@article.incident_id)) }
+    subject { get(incident_path(@incident.id)) }
     context "インシデントが存在するとき" do
       before do
         sign_in @user
@@ -96,7 +74,7 @@ RSpec.describe "Incidents", type: :request do
       context "インシデントに付随する記事が存在するとき" do
         it "記事一覧が表示される" do 
           subject
-          expect(response.body).to include(*Incident.pluck(:incident))
+          expect(response.body).to include(*@articles.pluck(:content))
         end
       end
       context "インシデントに付随する記事が存在しないとき" do
