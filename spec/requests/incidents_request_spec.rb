@@ -21,7 +21,8 @@ RSpec.describe "Incidents", type: :request do
       @incident = create(:incident, user: @user)
       @articles = create_list(:article, 3, incident: @incident, user: @user)
     end
-    subject { get(incident_path(@incident.id)) }
+    let(:incident_id) { @incident.id }
+    subject { get(incident_path(incident_id)) }
     context "インシデントが存在するとき" do
       before do
         sign_in @user
@@ -76,17 +77,13 @@ RSpec.describe "Incidents", type: :request do
           subject
           expect(response.body).to include(*@articles.pluck(:content))
         end
-      end
-      context "インシデントに付随する記事が存在しないとき" do
-        it "記事一覧が表示される" do 
-          
-        end 
-      end
-      
+      end      
     end
     context ":idに対応するインシデントが存在しないとき" do
+      let(:incident_id)  { 1 }
       it "エラーが発生する" do
-        
+        binding.pry
+        expect { subject }.to raise_error ActiveRecord::RecordNotFound
       end
     end
   end
