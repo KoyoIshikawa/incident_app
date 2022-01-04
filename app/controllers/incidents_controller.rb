@@ -12,6 +12,7 @@ class IncidentsController < ApplicationController
     @incident = Incident.find(params[:id])
     @articles = @incident.articles.order(id: :DESC)
     @article = current_user.articles.new
+    # binding.pry
   end
 
   def new
