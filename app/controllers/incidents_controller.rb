@@ -12,7 +12,6 @@ class IncidentsController < ApplicationController
     @incident = Incident.find(params[:id])
     @articles = @incident.articles.order(id: :DESC)
     @article = current_user.articles.new
-    # binding.pry
   end
 
   def new
@@ -20,6 +19,7 @@ class IncidentsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @incident = current_user.incidents.new(incident_params)
     if @incident.save
       redirect_to @incident, notice: "作成しました"

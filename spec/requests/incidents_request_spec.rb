@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "Incidents", type: :request do
-  describe "ログインしているとき" do 
+  describe "ログインしているとき" do
+    before do 
+      @user = create(:user)
+      sign_in @user
+    end
     describe "GET #index" do
       subject { get(incidents_path) }
       context "インシデントが存在するとき" do 
@@ -18,15 +22,11 @@ RSpec.describe "Incidents", type: :request do
     end
     describe "GET #show" do
       before do
-        @user = create(:user)
         @incident = create(:incident, user: @user)
         @articles = create_list(:article, 3, incident: @incident, user: @user)
       end
       let(:incident_id) { @incident.id }
       subject { get(incident_path(incident_id)) }
-      before do
-          sign_in @user
-      end
       context "インシデントが存在するとき" do
         it "リクエストが成功する" do
           subject
@@ -88,28 +88,44 @@ RSpec.describe "Incidents", type: :request do
       end
     end
     describe "GET #new" do
+      subject { get(new_incident_path) }
       it "リクエストが成功する" do
-        
+        subject
+        expect(response).to have_http_status(:ok)
       end
     end 
     describe "POST #create" do
+      subject { post(incidents_path, params: params) }
+
       context "パラメータが正常なとき" do
+        let(:params) { { incident: attributes_for(:incident) } }
+
+        it "リクエストが成功する" do
+          subject
+          expect(response).to have_http_status(302)
+        end
         it "インシデントが保存される" do
-          
+          binding.pry
+          expect(subject).to change{ Incident.count }.by(1)
         end
         it "詳細ページにリダイレクトされる" do
-          
+          subject
+          expect(response).to redirect_to Incident.last
         end
       end
       context "パラメータが異常なとき" do
+        let(:params) { { incident: attributes_for(:incident, :invalid) } }
+
         it "リクエストが成功する" do
-          
+          subject
+          expect(response).to have_http_status(200)
         end
         it "インシデントが保存されない" do
-          
+          expect { subject }.not_to change(Incident, :count)
         end
         it "新規投稿ページにレンダリングされる" do 
-
+          subject
+          expect(response.body).to include "新規発行"
         end
       end
     end

@@ -6,5 +6,9 @@ FactoryBot.define do
     solution { Faker::Lorem.paragraph }
     status { Status.find(rand(Status.first.id..Status.last.id)) }
     user
+
+    trait :invalid do
+      incident { nil }
+    end
   end
 end
