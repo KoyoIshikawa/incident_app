@@ -98,11 +98,10 @@ RSpec.describe "Incidents", type: :request do
       subject { post(incidents_path, params: params) }
 
       context "パラメータが正常なとき" do
-        let(:coding_lang_name){}
         let(:params) { { incident: attributes_for(:incident, 
-                coding_lang_id: "ruby"), 
-                os_name: attributes_for(:os_name, name: "macOs"), 
-                status: attributes_for(:status, status: "受付")) } }
+                coding_lang_id: CodingLang.first.id, 
+                os_name_id: OsName.first.id, 
+                status_id: Status.first.id) } }
 
         it "リクエストが成功する" do
           subject
