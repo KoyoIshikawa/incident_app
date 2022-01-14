@@ -108,8 +108,9 @@ RSpec.describe "Incidents", type: :request do
           expect(response).to have_http_status(302)
         end
         it "インシデントが保存される" do
-          binding.pry
-          expect(subject).to change{ Incident.count }.by(1)
+          # binding.pry
+          expect(subject).to change { Incident.count }.by(1)
+          # binding.pry
         end
         it "詳細ページにリダイレクトされる" do
           subject
