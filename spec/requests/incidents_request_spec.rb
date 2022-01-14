@@ -108,9 +108,7 @@ RSpec.describe "Incidents", type: :request do
           expect(response).to have_http_status(302)
         end
         it "インシデントが保存される" do
-          # binding.pry
-          expect(subject).to change { Incident.count }.by(1)
-          # binding.pry
+          expect { subject }.to change(Incident, :count).by(1)
         end
         it "詳細ページにリダイレクトされる" do
           subject
@@ -201,30 +199,40 @@ RSpec.describe "Incidents", type: :request do
 
       context "パラメータが正常なとき" do
         let(:params) { { incident: attributes_for(:incident, 
-                coding_lang_id: CodingLang.first.id, 
-                os_name_id: OsName.first.id, 
-                status_id: Status.first.id) } }
+                         coding_lang_id: CodingLang.first.id, 
+                         os_name_id: OsName.first.id, 
+                         status_id: Status.first.id) } }
         
         it "リクエストが成功する" do
           subject
           expect(response).to have_http_status(302)
         end
         it "インシデントが更新される" do
+          origin_incident = incident.incident
+          new_incident = params[:incident][:incident]
           # binding.pry
-          expect(subject).to change { Incident.count }.by(1)
-          # binding.pry
+          expect{subject}.to change { incident.reload.incident }.from(origin_incident).to(new_incident)
         end
         it "解決方法が更新される" do
-          
+          origin_solution = incident.solution
+          new_solution = params[:incident][:solution]
+          # binding.pry
+          expect{subject}.to change { incident.reload.solution }.from(origin_solution).to(new_solution)
         end
         it "OSが更新される" do
-          
+          origin_os_name = incident.os_name
+          new_os_name = params[:incident][:os_name_id]
+          expect(subject).to change { incident.reload.os_name_id }.from(origin_os_name).to(new_os_name)
         end
         it "ステータスが更新される" do
-          
+          origin_status = incident.status
+          new_status = params[:incident][:status]
+          expect(subject).to change { incident.reload.status }.from(origin_status).to(new_status)
         end
         it "言語が更新される" do
-          
+          origin_coding_lang = incident.coding_lang
+          new_coding_lang = params[:incident][:coding_lang]
+          expect(subject).to change { incident.reload.coding_lang }.from(origin_coding_lang).to(new_coding_lang)
         end
         it "詳細ページにリダイレクトされる" do
           subject
