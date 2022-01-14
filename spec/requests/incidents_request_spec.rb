@@ -134,116 +134,128 @@ RSpec.describe "Incidents", type: :request do
       end
     end
     describe "GET #edit" do
-      context "インシデントが存在するとき" do 
+      # before do
+      #   @incident = create(:incident, user: @user)
+      #   @articles = create_list(:article, 3, incident: @incident, user: @user)
+      # end
+      let(:incident) { create(:incident, user: @user)}
+      let(:articles) {create_list(:article, 3, incident: incident, user: @user)}
+      let(:incident_id) { incident.id }
+      subject { get(incident_path(incident_id)) }
+      context "インシデントが存在するとき" do
         it "リクエストが成功する" do
+          subject
+          expect(response).to have_http_status(:ok)
         end
 
-        it "インシデントが表示されている" do
+        it "インシデントが表示される" do
+          subject
+          expect(response.body).to include incident.incident
         end
 
         it "解決方法がが表示される" do
-
+          subject
+          expect(response.body).to include incident.solution
         end
-        it "ユーザが表示される" do 
-
+        it "ユーザ名が表示される" do 
+          subject
+          expect(response.body).to include incident.user.username
         end
 
         it "作成日時が表示される"do
-        
+          subject
+          expect(response.body).to include I18n.l incident.created_at, format: :long
+          
         end
 
         it "更新日時が表示される"do
-        
+          subject
+          expect(response.body).to include I18n.l incident.updated_at, format: :long
         end
 
         it "ステータスが表示される"do
-
+          subject
+          expect(response.body).to include incident.status.status
         end
 
         it "OSが表示される"do
-        
+          subject
+          expect(response.body).to include incident.os_name.name
         end
 
         it "言語が表示される" do
-          
-        end
-
-        context "インシデントに付随する記事が存在するとき" do
-          it "記事一覧が表示される" do 
-
-          end
-        end
-        context "インシデントに付随する記事が存在しないとき" do
-          it "記事一覧が表示される" do 
-            
-          end 
-        end
-        
+          subject
+          expect(response.body).to include incident.coding_lang.name
+        end     
       end
       context ":idに対応するインシデントが存在しないとき" do
+        let(:incident_id)  { 1 }
         it "エラーが発生する" do
-          
+          expect { subject }.to raise_error ActiveRecord::RecordNotFound
         end
       end
     end
     describe "PATCH #update" do
+      subject { patch(incident_path(incident.id), params: params) }
+      let(:incident){ create(:incident, user: @user)}
+
       context "パラメータが正常なとき" do
+        let(:params) { { incident: attributes_for(:incident, 
+                coding_lang_id: CodingLang.first.id, 
+                os_name_id: OsName.first.id, 
+                status_id: Status.first.id) } }
+        
         it "リクエストが成功する" do
+          subject
+          expect(response).to have_http_status(302)
         end
-
         it "インシデントが更新される" do
-
+          # binding.pry
+          expect(subject).to change { Incident.count }.by(1)
+          # binding.pry
         end
-
         it "解決方法が更新される" do
-
+          
         end
-        it "更新日時が更新される"do
-        
+        it "OSが更新される" do
+          
         end
-
-        it "ステータスが更新される"do
-
+        it "ステータスが更新される" do
+          
         end
-
-        it "OSが更新される"do
-        
-        end
-
         it "言語が更新される" do
           
         end
         it "詳細ページにリダイレクトされる" do
-          
+          subject
+          expect(response).to redirect_to Incident.last
         end
       end
-      context "インシデントのパラメータが異常なとき" do
+      context "パラメータが異常なとき" do
+        let(:params) { { incident: attributes_for(:incident, :invalid) } }
+
         it "リクエストが成功する" do
-          
+          subject
+          expect(response).to have_http_status(200)
         end
         it "インシデントが更新されない" do
-          
+          expect { subject }.not_to change(Incident, :count)
         end
         it "解決方法が更新されない" do
-
+          
         end
-        it "更新日時が更新されない"do
-        
+        it "OSが更新されない" do
+          
         end
-
-        it "ステータスが更新されない"do
-
+        it "ステータスが更新されない" do
+          
         end
-
-        it "OSが更新されない"do
-        
-        end
-
         it "言語が更新されない" do
           
         end
-        it "編集ページにレンダリングされる" do
-          
+        it "新規投稿ページにレンダリングされる" do 
+          subject
+          expect(response.body).to include "更新"
         end
       end
     end
