@@ -42,6 +42,7 @@ class IncidentsController < ApplicationController
   end
 
   def destroy
+    binding.pry
     @incident.destroy!
     redirect_to root_path, alert: "削除しました"
   end

@@ -265,5 +265,25 @@ RSpec.describe "Incidents", type: :request do
         end
       end
     end
+    describe 'DELETE #destroy' do
+      subject { delete(incident_path(incident.id)) }
+      let!(:incident) { create(:incident) }
+
+      context 'パラメータが正常な場合' do
+        it 'リクエストが成功する' do
+          subject
+          expect(response).to have_http_status(302)
+        end
+
+        it 'incidentが削除される' do
+          expect { subject }.to change(Incident, :count).by(-1)
+        end
+
+        it 'インシデント一覧にリダイレクトすること' do
+          subject
+          expect(response).to redirect_to(root_path)
+        end
+      end
+    end
   end
 end
