@@ -267,7 +267,7 @@ RSpec.describe "Incidents", type: :request do
     end
     describe 'DELETE #destroy' do
       subject { delete(incident_path(incident.id)) }
-      let!(:incident) { create(:incident) }
+      let!(:incident) { create(:incident, user: @user) }
 
       context 'パラメータが正常な場合' do
         it 'リクエストが成功する' do
