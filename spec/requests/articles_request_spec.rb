@@ -18,7 +18,7 @@ RSpec.describe "Articles", type: :request do
           subject
           expect(response).to have_http_status(302)
         end
-        it "インシデントが保存される" do
+        it "記事が保存される" do
           expect{ subject }.to change{ Article.count }.by(1)
         end
         it "詳細ページにリダイレクトされる" do
@@ -27,39 +27,31 @@ RSpec.describe "Articles", type: :request do
         end
       end
       context "パラメータが異常なとき" do
-        let(:params) { { incident: attributes_for(:incident, :invalid) } }
+        let(:params) { { article: attributes_for(:article, :invalid) } }
 
-        it "リクエストが成功する" do
+        it "詳細ページにリダイレクトされる" do
           subject
-          expect(response).to have_http_status(200)
+          expect(response).to have_http_status(302)
         end
         it "インシデントが保存されない" do
-          expect { subject }.not_to change(Incident, :count)
-        end
-        it "新規投稿ページにレンダリングされる" do 
-          subject
-          expect(response.body).to include "新規発行"
+          expect { subject }.not_to change(Article, :count)
         end
       end
     end
     describe "GET #edit" do
-      # before do
-      #   @incident = create(:incident, user: @user)
-      #   @articles = create_list(:article, 3, incident: @incident, user: @user)
-      # end
       let(:incident) { create(:incident, user: @user)}
-      let(:articles) {create_list(:article, 3, incident: incident, user: @user)}
+      let(:article) {create(:article, incident: incident, user: @user)}
       let(:incident_id) { incident.id }
-      subject { get(incident_path(incident_id)) }
-      context "インシデントが存在するとき" do
+      let(:article_id) { article.id }
+      subject { get(edit_incident_article_path(incident_id,article_id)) }
+      context "記事が存在するとき" do
         it "リクエストが成功する" do
           subject
           expect(response).to have_http_status(:ok)
         end
-
-        it "インシデントが表示される" do
+        it "記事が表示される" do
           subject
-          expect(response.body).to include incident.incident
+          expect(response.body).to include incident.
         end
 
         it "解決方法がが表示される" do
