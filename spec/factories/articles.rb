@@ -8,6 +8,4 @@ FactoryBot.define do
       content { nil }
     end
   end
-
-
 end

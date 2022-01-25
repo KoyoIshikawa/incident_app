@@ -132,14 +132,10 @@ RSpec.describe "Incidents", type: :request do
       end
     end
     describe "GET #edit" do
-      # before do
-      #   @incident = create(:incident, user: @user)
-      #   @articles = create_list(:article, 3, incident: @incident, user: @user)
-      # end
       let(:incident) { create(:incident, user: @user)}
       let(:articles) {create_list(:article, 3, incident: incident, user: @user)}
       let(:incident_id) { incident.id }
-      subject { get(incident_path(incident_id)) }
+      subject { get(edit_incident_path(incident_id)) }
       context "インシデントが存在するとき" do
         it "リクエストが成功する" do
           subject
@@ -188,8 +184,8 @@ RSpec.describe "Incidents", type: :request do
       end
       context ":idに対応するインシデントが存在しないとき" do
         let(:incident_id)  { 1 }
-        it "エラーが発生する" do
-          expect { subject }.to raise_error ActiveRecord::RecordNotFound
+        it "一覧画面にリダイレクトされる" do
+          expect(subject).to redirect_to(root_path)
         end
       end
     end
