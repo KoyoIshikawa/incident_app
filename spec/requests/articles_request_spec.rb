@@ -54,12 +54,12 @@ RSpec.describe "Articles", type: :request do
         end
       end
       context ":idに対応する記事が存在しないとき" do
-      let(:article_id) { 1 }
+        let(:article_id) { 1 }
 
-      it "一覧画面にリダイレクトされる" do
-        expect(subject).to redirect_to(root_path)
+        it "一覧画面にリダイレクトされる" do
+          expect(subject).to redirect_to(root_path)
+        end
       end
-    end
     end
     describe "PATCH #update" do
       let(:incident) { create(:incident, user: @user)}
