@@ -51,48 +51,7 @@ RSpec.describe "Articles", type: :request do
         end
         it "記事が表示される" do
           subject
-          expect(response.body).to include incident.
-        end
-
-        it "解決方法がが表示される" do
-          subject
-          expect(response.body).to include incident.solution
-        end
-        it "ユーザ名が表示される" do 
-          subject
-          expect(response.body).to include incident.user.username
-        end
-
-        it "作成日時が表示される"do
-          subject
-          expect(response.body).to include I18n.l incident.created_at, format: :long
-          
-        end
-
-        it "更新日時が表示される"do
-          subject
-          expect(response.body).to include I18n.l incident.updated_at, format: :long
-        end
-
-        it "ステータスが表示される"do
-          subject
-          expect(response.body).to include incident.status.status
-        end
-
-        it "OSが表示される"do
-          subject
-          expect(response.body).to include incident.os_name.name
-        end
-
-        it "言語が表示される" do
-          subject
-          expect(response.body).to include incident.coding_lang.name
-        end     
-      end
-      context ":idに対応するインシデントが存在しないとき" do
-        let(:incident_id)  { 1 }
-        it "エラーが発生する" do
-          expect { subject }.to raise_error ActiveRecord::RecordNotFound
+          expect(response.body).to include article.content
         end
       end
     end
