@@ -155,23 +155,10 @@ RSpec.describe "Incidents", type: :request do
           subject
           expect(response.body).to include incident.user.username
         end
-
-        it "作成日時が表示される"do
-          subject
-          expect(response.body).to include I18n.l incident.created_at, format: :long
-          
-        end
-
-        it "更新日時が表示される"do
-          subject
-          expect(response.body).to include I18n.l incident.updated_at, format: :long
-        end
-
         it "ステータスが表示される"do
           subject
           expect(response.body).to include incident.status.status
         end
-
         it "OSが表示される"do
           subject
           expect(response.body).to include incident.os_name.name
