@@ -8,8 +8,7 @@ RSpec.describe "Articles", type: :request do
     end
     describe "POST #create" do
       let(:incident) { create(:incident, user: @user)}
-      let(:incident_id) { incident.id }
-      subject { post(incident_articles_path(incident_id), params: params) }
+      subject { post(incident_articles_path(incident.id), params: params) }
 
       context "パラメータが正常なとき" do
         let(:params) { { article: attributes_for(:article) } }
@@ -23,7 +22,7 @@ RSpec.describe "Articles", type: :request do
         end
         it "詳細ページにリダイレクトされる" do
           subject
-          expect(response).to redirect_to Incident.find(incident_id)
+          expect(response).to redirect_to Incident.find(incident.id)
         end
       end
       context "パラメータが異常なとき" do
@@ -64,9 +63,7 @@ RSpec.describe "Articles", type: :request do
     describe "PATCH #update" do
       let(:incident) { create(:incident, user: @user)}
       let(:article) {create(:article, incident: incident, user: @user)}
-      let(:incident_id) { incident.id }
-      let(:article_id) { article.id }
-      subject { patch(incident_article_path(incident_id,article_id), params: params) }
+      subject { patch(incident_article_path(incident.id,article.id), params: params) }
 
       context "パラメータが正常なとき" do
         let(:params) { { article: attributes_for(:article) } }
@@ -82,7 +79,7 @@ RSpec.describe "Articles", type: :request do
         end
         it "詳細ページにリダイレクトされる" do
           subject
-          expect(response).to redirect_to Incident.find(incident_id)
+          expect(response).to redirect_to Incident.find(incident.id)
         end
       end
       context "パラメータが異常なとき" do
