@@ -269,4 +269,54 @@ RSpec.describe "Incidents", type: :request do
       end
     end
   end
+  describe "ログインしていないとき" do
+    describe "GET #index" do
+      subject { get(incidents_path) }
+      context "インシデントが存在するとき" do 
+        before { create_list(:incident, 3) }
+        it "リクエストが成功する" do
+          subject
+          expect(response).to have_http_status(:ok)
+        end
+        it "一覧が表示されている" do
+          subject
+          expect(response.body).to include(*Incident.pluck(:incident))
+        end
+      end
+    end
+    describe "GET #show" do
+      let(:incident)
+      #インシデントを作成する
+      it "ログインを要求すること" do
+        #インシデントのidをgetに渡す
+        get(incident_path)
+        expect(response).to redirect_to(new_user_session)
+      end
+    end
+    describe "GET #new" do
+      it "ログインを要求すること" do 
+
+      end
+    end 
+    describe "POST #create" do
+      it "ログインを要求すること" do 
+
+      end
+    end 
+    describe "GET #edit" do
+      it "ログインを要求すること" do 
+
+      end
+    end
+    describe "PATCH #update" do
+      it "ログインを要求すること" do 
+
+      end
+    end
+    describe 'DELETE #destroy' do
+      it "ログインを要求すること" do 
+
+      end
+    end
+  end
 end
