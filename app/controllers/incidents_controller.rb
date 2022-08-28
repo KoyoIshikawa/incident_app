@@ -20,6 +20,7 @@ class IncidentsController < ApplicationController
 
   def create
     @incident = current_user.incidents.new(incident_params)
+    # binding.pry
     if @incident.save
       redirect_to @incident, notice: "作成しました"
     else
