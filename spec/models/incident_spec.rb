@@ -37,7 +37,6 @@ RSpec.describe Incident, type: :model do
         expect(incident.errors.messages[:solution]).to include "は20000文字以内で入力してください"
       end
     end
-    # binding.pry
     context "os_nameが空白のとき" do
       let(:incident) { build(:incident, os_name_id: 0) }
       it "エラーが発生する" do

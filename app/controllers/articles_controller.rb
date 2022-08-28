@@ -11,12 +11,16 @@ class ArticlesController < ApplicationController
   end
 
   def edit 
-    
+
   end
 
   def update
-    @article.update!(article_params)
-    redirect_to @incident, notice: "更新しました"
+    if @article.update(article_params)
+      redirect_to @incident, notice: "更新しました"
+    else
+      flash.now[:alert] = "更新に失敗しました"
+      render :edit
+    end
   end
 
   def destroy
