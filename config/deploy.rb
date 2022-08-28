@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.16.0"
 
-set :application, "aws_incident_app"
+set :application, "incident_app"
 set :repo_url, "git@github.com:KoyoIshikawa/incident_app.git"
 
 set :rbenv_ruby, File.read('.ruby-version').strip

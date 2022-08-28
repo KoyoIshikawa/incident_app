@@ -1,7 +1,7 @@
-server "54.64.229.69", user: "KoyoIshikawa", roles: %w{app db web}
+server "176.34.0.29", user: "KoyoIshikawa", roles: %w{app db web}
 
 set :ssh_options, {
-  keys: %w(~/.ssh/aws_incident_app.pem),
+  keys: %w(~/.ssh/incident_app.cer),
   forward_agent: true,
   auth_methods: %w(publickey),
 }
